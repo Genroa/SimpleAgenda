@@ -1,0 +1,14 @@
+<template name="agendaMonth">
+	{{setTitle "Agenda"}}
+	
+	<a href="{{pathFor route='home'}}">Accueil</a>
+	<br>
+	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
+
+	<h1>Agenda de {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
+	<ul>
+		{{#each day in daysInMonth}}
+			<li><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}">{{day.getDate}} {{getNamedDayOfWeek day.getDay}}</a></li>
+		{{/each}}
+	</ul>
+</template>

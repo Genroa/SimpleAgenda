@@ -1,0 +1,12 @@
+<template name="home">
+	{{setTitle "Accueil"}}
+	<br>
+	Hey, salut {{getUsername}}!
+	<br>
+	<a href="{{pathFor route='management'}}">Gérer mes matières/domaines</a>
+	<br>
+	<a href="{{pathFor route='agenda'}}">Gérer mon agenda</a>
+	<br>
+	<form class="logout_form"><input class="logout_button" type="submit" value="Se déconnecter"></form>
+	<span id="message_zone">{{getInfoMessage}}</span>
+</template>

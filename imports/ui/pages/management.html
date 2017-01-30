@@ -1,0 +1,22 @@
+<template name="management">
+	{{setTitle "Gérer mes matières/domaines"}}
+	
+	<a href="{{pathFor route='home'}}">Accueil</a>
+
+	<h1>Gérer mes matières/domaines</h1>
+
+	<ul>
+		{{#each course in courses}}
+			<li style="color: {{course.color}}">{{course.name}} <a href="#" class="delete_course" value="{{course._id}}">Supprimer</a> </li>
+		{{/each}}
+	</ul>
+
+	<br>
+	<form class="new_course_form">
+		<input type="text" class="course_name" required>
+		<br>
+		<input class="course_color jscolor" value="#000000" required>
+		<br>
+		<input type="submit" value="Créer un nouveau cours">
+	</form>
+</template>

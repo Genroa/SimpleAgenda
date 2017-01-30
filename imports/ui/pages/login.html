@@ -1,0 +1,24 @@
+<template name="login">
+	{{setTitle "Login/Sign Up"}}
+	Login
+	<form name="login_form" class="login_form" method="post">
+		<input type="text" class="pseudo"><br>
+		<input type="password" class="password"><br>
+		<input type="submit" value="Se connecter">
+	</form>
+
+	Register
+	<form name="register_form" class="register_form" method="post">
+		Pseudo: <br>
+		<input type="text" class="pseudo" required><br>
+		Email: <br>
+		<input type="email" class="email" required><br>
+		Password: <br>
+		<input type="password" class="password"  name="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password2.pattern = this.value;" placeholder="Tapez votre mot de passe" required><br>
+		Repeat password: <br>
+		<input type="password" name="password2" class="password2" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"  placeholder="Retapez le mot de passe" required><br>
+		<input type="submit" value="S'inscrire">
+	</form>
+
+	<span id="message_zone">{{getInfoMessage}}</span>
+</template>

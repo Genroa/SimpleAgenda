@@ -1,0 +1,29 @@
+<template name="agendaDay">
+	{{setTitle "Agenda"}}
+	
+	<a href="{{pathFor route='home'}}">Accueil</a>
+	<br>
+	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
+	<br>
+	<a href="/agenda/{{currentYear}}/{{currentMonth}}">Agenda du mois</a>
+
+	<h1>Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
+
+	<ul>
+		{{#each note in getNotes}}
+			<li>{{getCourseNameById (note.course)}} {{note.date}}</li>
+		{{/each}}
+	</ul>
+
+	Ajouter une note: <br>
+	<form class="new_note_form">
+		Matière: <br>
+		<select class="note_course">
+			{{#each course in unNotedCourses}}
+				<option style="color: {{course.color}}" value="{{course._id}}">{{course.name}}</option>
+			{{/each}}
+		</select>
+		<br>
+		<input type="submit" value="Créer une nouvelle note">
+	</form>
+</template>
