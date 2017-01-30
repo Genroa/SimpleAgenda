@@ -15,15 +15,15 @@
 		{{/each}}
 	</ul>
 
-	Ajouter une note: <br>
+	<h4>Ajouter une note: </h4>
 	<form class="new_note_form">
-		Matière: <br>
-		<select class="note_course">
-			{{#each course in unNotedCourses}}
-				<option style="color: {{course.color}}" value="{{course._id}}">{{course.name}}</option>
-			{{/each}}
-		</select>
+			<select class="note_course browser-default">
+				{{#each course in unNotedCourses}}
+					<option style="color: {{course.color}}" value="{{course._id}}">{{course.name}}</option>
+				{{/each}}
+			</select>
+			<label>Matière:</label>
 		<br>
-		<input type="submit" value="Créer une nouvelle note">
+		<a href="#" class="waves-effect waves-light btn submit_new_note">Créer une nouvelle note</a>
 	</form>
 </template>

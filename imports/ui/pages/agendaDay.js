@@ -36,8 +36,12 @@ Template.agendaDay.helpers({
 	}
 });
 
+Template.agendaDay.onRendered(function() {
+	$('select').material_select();
+});
+
 Template.agendaDay.events({
-	'submit .new_note_form': function(event) {
+	'click .submit_new_note': function(event) {
 		event.preventDefault();
 		let noteCourse = $('.new_note_form .note_course').val();
 		let year = parseInt(Router.current().params.year);
