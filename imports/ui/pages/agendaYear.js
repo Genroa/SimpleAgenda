@@ -7,8 +7,12 @@ Template.agendaYear.helpers({
 	currentYear: function(){
 		return Router.current().params.year;
 	},
-
-	monthsInYear: function() {
-		return NAMED_MONTHS;
+	
+	previousYear: function() {
+		return parseInt(Router.current().params.year)-1;
+	},
+	
+	nextYear: function() {
+		return parseInt(Router.current().params.year)+1;
 	}
 });

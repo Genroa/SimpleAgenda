@@ -1,13 +1,33 @@
 <template name="agendaYear">
 	{{setTitle "Agenda"}}
+
+	<h1 class="center-align">
+		<a class="btn-floating btn-large" href="/agenda/{{previousYear}}">&lsaquo;</a>
+		Agenda année {{currentYear}}
+		<a class="btn-floating btn-large" href="/agenda/{{nextYear}}">&rsaquo;</a>
+	</h1>
 	
-	<a href="{{pathFor route='home'}}">Accueil</a>
-
-	<h1>Agenda année {{currentYear}}</h1>
-
-	<ul>
-		{{#each month in monthsInYear}}
-			<li><a href="/agenda/{{currentYear}}/{{@index}}">{{month}}</a></li>
-		{{/each}}
-	</ul>
+	<table class="bordered striped centered">
+		<tbody>
+			<tr>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/0">Janv.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/1">Févr.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/2">Mars</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/3">Avril</a></td>
+			</tr>
+			<tr>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/4">Mai</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/5">Juin</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/6">Juill.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/7">Aout</a></td>
+			</tr>
+			<tr>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/8">Sept.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/9">Oct.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/10">Nov.</a></td>
+				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/11">Déc.</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
 </template>

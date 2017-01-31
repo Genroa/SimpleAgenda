@@ -1,20 +1,41 @@
 <template name="agendaDay">
 	{{setTitle "Agenda"}}
 	
-	<a href="{{pathFor route='home'}}">Accueil</a>
-	<br>
 	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
 	<br>
 	<a href="/agenda/{{currentYear}}/{{currentMonth}}">Agenda du mois</a>
 
 	<h1>Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
-
-	<ul>
+	
+	<div class="row note_container" style="display: none">
+		<div class="col s12">
+			<!-- Tabs -->
+			<ul class="notes_tab">
+				{{#each note in getNotes}}
+					<a href="#{{note._id}}" style="color: white">
+						<li class="tab col s3" style="background-color: {{getCourseColorById (note.course)}}">
+							{{getCourseNameById (note.course)}}
+							<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
+						</li>
+					</a>
+				{{/each}}
+			</ul>
+		</div>
+		<!-- Contents -->
 		{{#each note in getNotes}}
-			<li>{{getCourseNameById (note.course)}} {{note.date}}</li>
+				<div id="{{note._id}}" class="col s12">
+					<!-- textarea contenant le contenu -->
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea placeholder="Ecrivez votre note ici" note="{{note._id}}" class="materialize-textarea content_area">{{note.content}}</textarea>
+							</div>
+						</div>
+					</form>
+				</div>
 		{{/each}}
-	</ul>
-
+	</div>
+	
 	<h4>Ajouter une note: </h4>
 	<form class="new_note_form">
 			<select class="note_course browser-default">
@@ -24,6 +45,6 @@
 			</select>
 			<label>Matière:</label>
 		<br>
-		<a href="#" class="waves-effect waves-light btn submit_new_note">Créer une nouvelle note</a>
+		<a href="#" class="waves-effect waves-light btn submit_new_note pink darken-2">Créer une nouvelle note</a>
 	</form>
 </template>

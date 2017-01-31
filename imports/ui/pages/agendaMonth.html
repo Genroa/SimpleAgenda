@@ -1,8 +1,6 @@
 <template name="agendaMonth">
 	{{setTitle "Agenda"}}
 	
-	<a href="{{pathFor route='home'}}">Accueil</a>
-	<br>
 	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
 
 	<h1>Agenda de {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>

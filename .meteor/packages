@@ -24,4 +24,4 @@ session
 iron:router
 jagi:astronomy
 fourseven:scss
-materialize:materialize@=0.97.0
+poetic:materialize-scss

@@ -1,0 +1,31 @@
+<template name="appLayout">
+	<nav>
+		<div class="nav-wrapper pink darken-4">
+			<a href="#" class="brand-logo">Simple Agenda</a>
+			
+			
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			
+			
+			<ul class="right hide-on-med-and-down">
+				{{#if currentUser }}
+					<li><a href="{{pathFor route='management'}}">Gérer mes matières/activités</a></li>
+					<li><a href="{{pathFor route='agenda'}}">Agenda</a></li>
+					<li><a class="logout" href="#">Déconnexion</a></li>
+				{{/if}}
+			</ul>
+			
+			<ul class="side-nav" id="mobile-demo">
+				{{#if currentUser }}
+					<li><a class="menu_link" href="{{pathFor route='management'}}">Matières/activités</a></li>
+					<li><a href="{{pathFor route='agenda'}}">Agenda</a></li>
+					<li><div class="divider"></div></li>
+					<li><a class="menu_link logout" href="#">Déconnexion</a></li>
+				{{else}}
+					<li><a class="subheader">Connectez vous</a></li>
+				{{/if}}
+			</ul>
+		</div>
+	</nav>
+	{{> yield }}
+</template>

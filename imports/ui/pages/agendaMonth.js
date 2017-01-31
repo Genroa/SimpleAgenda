@@ -26,3 +26,4 @@ Template.agendaMonth.helpers({
 		 return days;
 	}
 });
+

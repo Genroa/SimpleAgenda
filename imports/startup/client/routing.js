@@ -25,9 +25,11 @@ ApplicationController = RouteController.extend({
 			if(!user) {
 				//console.log("Redirection to login page...");
 				Session.set("infoMessage", "Loggez vous");
+				//this.layout(undefined);
 				this.render('login');
 			}
 			else {
+				//this.layout("appLayout");
 				this.next();
 			}
 		}
@@ -39,7 +41,8 @@ Configuration globale du routeur : on définit le controlleur par défaut pour tou
 */
 Router.configure({
 	controller: 'ApplicationController',
-	notFoundTemplate: 'notFoundTemplate'
+	notFoundTemplate: 'notFoundTemplate',
+	layoutTemplate: 'appLayout'
 });
 
 
@@ -47,7 +50,7 @@ Router.configure({
 Router.route('/', {
 	name: 'home',
 	action: function() {
-		this.render('home');
+		Router.go('/agenda');
 	}
 });
 

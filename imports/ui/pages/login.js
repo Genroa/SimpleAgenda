@@ -1,4 +1,5 @@
 
+import { Tracker } from 'meteor/tracker';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Template } from 'meteor/templating';
@@ -26,7 +27,7 @@ Template.login.events({
 			}
 		});
 	},
-
+	
 	'submit .register_form'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();

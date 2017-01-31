@@ -1,13 +1,14 @@
 <template name="management">
 	{{setTitle "Gérer mes matières/domaines"}}
-	
-	<a href="{{pathFor route='home'}}">Accueil</a>
 
 	<h1>Gérer mes matières/domaines</h1>
 
 	<ul>
 		{{#each course in courses}}
-			<li style="color: {{course.color}}">{{course.name}} <a href="#" class="delete_course" value="{{course._id}}">Supprimer</a> </li>
+			<li style="color: {{course.color}}">
+				{{course.name}}
+				<a href="#" class="delete_course" value="{{course._id}}"><i value="{{course._id}}" class="close material-icons">close</i></a>
+			</li>
 		{{/each}}
 	</ul>
 

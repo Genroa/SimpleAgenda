@@ -1,6 +1,25 @@
 
 
 import './agendaDay.html';
+import { ReactiveVar } from 'meteor/reactive-var';
+
+
+
+doneTyping = function(element) {
+	console.log("key up");
+	Meteor.call("updateNoteContent", element.attr("note"), element.val(), function(err, result){
+		if(err) {
+			console.log(err.reason);
+		} else {
+			$('.content_area').trigger('autoresize');
+		}
+	});
+}
+
+Template.agendaDay.onCreated(function(){
+	this.typingTimer;
+	this.doneTypingInterval = 800;
+});
 
 Template.agendaDay.helpers({
 	currentYear: function() {
@@ -37,7 +56,13 @@ Template.agendaDay.helpers({
 });
 
 Template.agendaDay.onRendered(function() {
-	$('select').material_select();
+	Meteor.setInterval(function(){
+		$('select').material_select();
+		$('ul.notes_tab').tabs();
+		$('.note_container').show();
+		$('.content_area').trigger('autoresize');
+		console.log("initialisation faite");
+	}, 1500);
 });
 
 Template.agendaDay.events({
@@ -54,7 +79,31 @@ Template.agendaDay.events({
 				console.log(err.reason);
 			} else {
 				console.log("Note créée");
+				$('ul.notes_tab').tabs();
 			}
 		});
+	},
+
+	'click .delete_note' : function(event) {
+		event.preventDefault();
+		Meteor.call("deleteNote", $(event.target).attr("value"), function(err, result){
+			if(err) {
+				console.log(err.reason);
+			}
+		});
+	},
+
+	'keyup .content_area': function(event) {
+		//event.preventDefault();
+		clearTimeout(Template.instance().typingTimer);
+		Template.instance().typingTimer = setTimeout(doneTyping, 
+														  Template.instance().doneTypingInterval,
+														  $(event.target));
+	},
+
+	'keydown .content_area': function(event) {
+		//event.preventDefault();
+		clearTimeout(Template.instance().typingTimer);
+		console.log("key down");
 	}
 });
