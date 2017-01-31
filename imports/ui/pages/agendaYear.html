@@ -1,33 +1,102 @@
 <template name="agendaYear">
 	{{setTitle "Agenda"}}
 
-	<h1 class="center-align">
-		<a class="btn-floating btn-large" href="/agenda/{{previousYear}}">&lsaquo;</a>
-		Agenda année {{currentYear}}
-		<a class="btn-floating btn-large" href="/agenda/{{nextYear}}">&rsaquo;</a>
-	</h1>
-	
-	<table class="bordered striped centered">
-		<tbody>
-			<tr>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/0">Janv.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/1">Févr.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/2">Mars</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/3">Avril</a></td>
-			</tr>
-			<tr>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/4">Mai</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/5">Juin</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/6">Juill.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/7">Aout</a></td>
-			</tr>
-			<tr>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/8">Sept.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/9">Oct.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/10">Nov.</a></td>
-				<td><a class="btn btn-large" href="/agenda/{{currentYear}}/11">Déc.</a></td>
-			</tr>
-		</tbody>
-	</table>
-	
+	<div class="container">
+		<div class="row">
+			<div class="col s2 right-align" style="padding-top: 3em">
+				<a class="btn-floating btn-large" href="/agenda/{{previousYear}}">&lsaquo;</a>
+			</div>
+			<div class="col s8 center-align">
+				<h1>
+					Agenda {{currentYear}}
+				</h1>
+			</div>
+			<div class="col s2 left-align" style="padding-top: 3em">
+				<a class="btn-floating btn-large" href="/agenda/{{nextYear}}">&rsaquo;</a>
+			</div>
+		</div>
+		{{#if is.mobile}}
+			<div class="row">
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/0">Janvier</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/1">Février</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/2">Mars</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/3">Avril</a>
+				</div>
+
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/4">Mai</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/5">Juin</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/6">Juillet</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/7">Aout</a>
+				</div>
+
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/8">Septembre</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/9">Octobre</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/10">Novembre</a>
+				</div>
+				<div class="col s6">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/11">Décembre</a>
+				</div>
+			</div>
+		{{else}}
+			<div class="row">
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/0">Janvier</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/1">Février</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/2">Mars</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/3">Avril</a>
+				</div>
+
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/4">Mai</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/5">Juin</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/6">Juillet</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/7">Aout</a>
+				</div>
+
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/8">Septembre</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/9">Octobre</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/10">Novembre</a>
+				</div>
+				<div class="col s6 m3">
+					<a class="btn btn-large" style="width: 100%; padding: 0.1em;" href="/agenda/{{currentYear}}/11">Décembre</a>
+				</div>
+			</div>
+		{{/if}}
+	</div>
 </template>
