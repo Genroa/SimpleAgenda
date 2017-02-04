@@ -11,6 +11,30 @@ Template.agendaMonth.helpers({
 		return Router.current().params.month;
 	},
 
+	previousMonthLink: function(year, month){
+		let newYear = parseInt(year);
+		let newMonth = parseInt(month)-1;
+		
+		if(newMonth == 0) {
+			newYear = newYear-1;
+			newMonth = 12;
+		}
+
+		return newYear+"/"+newMonth;
+	},
+
+	nextMonthLink: function(year, month){
+		let newYear = parseInt(year);
+		let newMonth = parseInt(month)+1;
+		
+		if(newMonth == 13) {
+			newYear = newYear+1;
+			newMonth = 1;
+		}
+
+		return newYear+"/"+newMonth;
+	},
+
 	daysInMonth: function() {
 		 // Since no month has fewer than 28 days
 		 var year = parseInt(Router.current().params.year);

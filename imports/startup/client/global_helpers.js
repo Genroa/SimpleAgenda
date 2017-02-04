@@ -15,9 +15,9 @@ Template.registerHelper("getInfoMessage", function() {
 	return Session.get("infoMessage");
 });
 
-// Retourne le mois à partir de son numéro (partant de 0) dans la liste des mois
+// Retourne le mois à partir de son numéro (partant de 1) dans la liste des mois
 Template.registerHelper("getNamedMonth", function(value) {
-	return NAMED_MONTHS[value];
+	return NAMED_MONTHS[value-1];
 });
 
 // Retourne le nom du jour de la semaine à partir de sa position (partant de 0) dans la liste des jours de la semaine
@@ -27,7 +27,7 @@ Template.registerHelper("getNamedDayOfWeek", function(value) {
 
 // Retourne le nom du jour de la semaine à partir de sa position dans le mois, du mois, et de l'année
 Template.registerHelper("getNamedDayOfWeekFromMonthAndYear", function(year, month, day) {
-	return NAMED_DAYS_OF_WEEK[(new Date(year, month, day).getDay()+6)%7];
+	return NAMED_DAYS_OF_WEEK[(new Date(year, month-1, day).getDay()+6)%7];
 });
 
 Template.registerHelper("getCourseNameById", function(id) {
