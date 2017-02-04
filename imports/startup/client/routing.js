@@ -6,10 +6,10 @@ import '../../api/courses/definition.js';
 import '../../api/notes/definition.js';
 
 
-/* Controleur standard qui fait les vérifications de base:
-- redirection vers l'accueil si pas loggé
+/* Controleur standard qui fait les vï¿½rifications de base:
+- redirection vers l'accueil si pas loggï¿½
 
-On peut se le permettre vu que ce sont les seules vérifications à faire, et qu'elles sont globales
+On peut se le permettre vu que ce sont les seules vï¿½rifications ï¿½ faire, et qu'elles sont globales
 sur toute l'application
 */
 
@@ -21,7 +21,7 @@ ApplicationController = RouteController.extend({
 		}
 		else {
 			var user = Meteor.user();
-			// pas loggé
+			// pas loggï¿½
 			if(!user) {
 				//console.log("Redirection to login page...");
 				Session.set("infoMessage", "Loggez vous");
@@ -37,7 +37,7 @@ ApplicationController = RouteController.extend({
 });
 
 /*
-Configuration globale du routeur : on définit le controlleur par défaut pour toute route
+Configuration globale du routeur : on dï¿½finit le controlleur par dï¿½faut pour toute route
 */
 Router.configure({
 	controller: 'ApplicationController',
@@ -55,7 +55,7 @@ Router.route('/', {
 });
 
 
-// Login/rgister
+// Login/register
 Router.route('/login', {
 	name: 'login',
 	action: function() {
@@ -64,12 +64,12 @@ Router.route('/login', {
 });
 
 
-// Gestion des matières/domaines
+// Gestion des matiï¿½res/domaines
 Router.route('/management', {
-	name: 'management',
+	name: 'management',/*
 	subscriptions: function() {
 		return Meteor.subscribe("user-courses", Meteor.userId());
-	},
+	},*/
 	data: function() {
 		return {
 			courses: Course.find({user: Meteor.userId()}, {sort: {name: 1}})
@@ -81,7 +81,7 @@ Router.route('/management', {
 });
 
 
-// Affichage agenda année actuelle
+// Affichage agenda annï¿½e actuelle
 Router.route('/agenda', {
 	name: 'agenda',
 	action: function() {
@@ -90,7 +90,7 @@ Router.route('/agenda', {
 	}
 })
 
-// Affichage agenda année
+// Affichage agenda annï¿½e
 Router.route('/agenda/:year', {
 	name: 'agenda-year',
 	action: function() {
@@ -109,14 +109,6 @@ Router.route('/agenda/:year/:month', {
 // Affichage agenda jour
 Router.route('/agenda/:year/:month/:day', {
 	name: 'agenda-day',
-	subscriptions: function() {
-		let year = parseInt(Router.current().params.year);
-		let month = parseInt(Router.current().params.month-1);
-		let day = parseInt(Router.current().params.day);
-
-		return [Meteor.subscribe("user-courses", Meteor.userId()), 
-				Meteor.subscribe("user-notes", Meteor.userId(), new Date(year, month, day))];
-	},
 	action: function() {
 		this.render('agendaDay');
 	}

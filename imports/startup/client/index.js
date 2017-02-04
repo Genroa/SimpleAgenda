@@ -1,9 +1,20 @@
 
 
 /*
-Fichier ne contenant que les imports des fichiers startup, pour gérer leur ordre d'import
+Fichier ne contenant que les imports des fichiers startup, pour gï¿½rer leur ordre d'import
 */
 
+
+SubscriptionManager = new SubsManager();
+
+Tracker.autorun(function() {
+    if(Meteor.userId()) {
+        SubscriptionManager.subscribe("user-courses", Meteor.userId());
+        SubscriptionManager.subscribe("user-notes", Meteor.userId());
+    } else {
+        SubscriptionManager.clear();
+    }
+});
 
 import './pages.js';
 import './routing.js';

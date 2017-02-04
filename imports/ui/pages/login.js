@@ -27,7 +27,7 @@ Template.login.events({
 			}
 		});
 	},
-	
+
 	'submit .register_form'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();

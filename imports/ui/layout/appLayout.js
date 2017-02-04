@@ -17,7 +17,7 @@ Template.appLayout.events({
 		//$("#sidenav-overlay").hide();
 		console.log("hide");
 	},
-	
+
 	'click .logout' (event) {
 		event.preventDefault();
 		Meteor.logout();

@@ -62,7 +62,7 @@ Template.agendaDay.onRendered(function() {
 		$('.note_container').show();
 		$('.content_area').trigger('autoresize');
 		console.log("initialisation faite");
-	}, 1500);
+	}, 10);
 });
 
 Template.agendaDay.events({
@@ -96,7 +96,7 @@ Template.agendaDay.events({
 	'keyup .content_area': function(event) {
 		//event.preventDefault();
 		clearTimeout(Template.instance().typingTimer);
-		Template.instance().typingTimer = setTimeout(doneTyping, 
+		Template.instance().typingTimer = setTimeout(doneTyping,
 														  Template.instance().doneTypingInterval,
 														  $(event.target));
 	},
