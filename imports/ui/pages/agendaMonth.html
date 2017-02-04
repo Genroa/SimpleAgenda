@@ -16,10 +16,33 @@
 			</div>
 		</div>
 
-		<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
-
 		<h1>Agenda de {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
 		<ul>
+
+			<table class="centered">
+	        <thead>
+	          <tr>
+	              <th class="weekday1">Lundi</th>
+	              <th class="weekday2">Mardi</th>
+				  <th class="weekday3">Mercredi</th>
+				  <th class="weekday4">Jeudi</th>
+				  <th class="weekday5">Vendredi</th>
+				  <th class="weekday6">Samedi</th>
+				  <th class="weekday7">Dimanche ("Manche")</th>
+	          </tr>
+	        </thead>
+
+	        <tbody>
+	          <tr>
+				  <td>
+				  </td>
+	          </tr>
+	          <tr>
+	          </tr>
+	          <tr>
+	          </tr>
+	        </tbody>
+	      </table>
 			{{#each day in daysInMonth}}
 				<li><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}">{{day.getDate}} {{getNamedDayOfWeek day.getDay}}</a></li>
 			{{/each}}
