@@ -8,7 +8,7 @@ Template.agendaMonth.helpers({
 		return Router.current().params.year;
 	},
 	currentMonth: function(){
-		return Router.current().params.month-1;
+		return Router.current().params.month;
 	},
 
 	daysInMonth: function() {

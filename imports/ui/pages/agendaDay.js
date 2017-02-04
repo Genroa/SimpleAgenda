@@ -27,7 +27,7 @@ Template.agendaDay.helpers({
 	},
 
 	currentMonth: function() {
-		return Router.current().params.month-1;
+		return Router.current().params.month;
 	},
 
 	currentDay: function() {
