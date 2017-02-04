@@ -8,44 +8,48 @@
 			</div>
 			<div class="col s8 center-align">
 				<h1>
-					Agenda de {{getNamedMonth (currentMonth)}} {{currentYear}}
+					Agenda {{getNamedMonth (currentMonth)}} {{currentYear}}
 				</h1>
 			</div>
 			<div class="col s2 left-align" style="padding-top: 3em">
 				<a class="btn-floating btn-large" href="/agenda/{{nextMonthLink (currentYear) (currentMonth)}}">&rsaquo;</a>
 			</div>
 		</div>
-
-		<h1>Agenda de {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
-		<ul>
-
-			<table class="centered">
+		<table class="centered">
 	        <thead>
-	          <tr>
-	              <th class="weekday1">Lundi</th>
-	              <th class="weekday2">Mardi</th>
-				  <th class="weekday3">Mercredi</th>
-				  <th class="weekday4">Jeudi</th>
-				  <th class="weekday5">Vendredi</th>
-				  <th class="weekday6">Samedi</th>
-				  <th class="weekday7">Dimanche ("Manche")</th>
-	          </tr>
+	          	<tr>
+	              	<th class="weekday1">Lundi</th>
+	              	<th class="weekday2">Mardi</th>
+				  	<th class="weekday3">Mercredi</th>
+				  	<th class="weekday4">Jeudi</th>
+				  	<th class="weekday5">Vendredi</th>
+				  	<th class="weekday6">Samedi</th>
+				  	<th class="weekday7">Dimanche ("Manche")</th>
+	          	</tr>
 	        </thead>
 
 	        <tbody>
-	          <tr>
-				  <td>
-				  </td>
-	          </tr>
-	          <tr>
-	          </tr>
-	          <tr>
-	          </tr>
+				{{#let days=daysInMonth}}
+					<tr>
+						{{{buildWeek 0 days}}}
+					</tr>
+					<tr>
+						{{{buildWeek 1 days}}}
+					</tr>
+					<tr>
+						{{{buildWeek 2 days}}}
+					</tr>
+					<tr>
+						{{{buildWeek 3 days}}}
+					</tr>
+					<tr>
+						{{{buildWeek 4 days}}}
+					</tr>
+					<tr>
+						{{{buildWeek 5 days}}}
+					</tr>
+				{{/let}}
 	        </tbody>
-	      </table>
-			{{#each day in daysInMonth}}
-				<li><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}">{{day.getDate}} {{getNamedDayOfWeek day.getDay}}</a></li>
-			{{/each}}
-		</ul>
+      	</table>
 	</div>
 </template>

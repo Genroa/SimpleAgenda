@@ -1,0 +1,19 @@
+table td {
+    width: 14.2%;
+    border: solid 1px #CCC;
+}
+
+table th {
+    background-color: #E0E0E0;
+    border:  solid 1px #E0E0E0;
+}
+
+.dayNumber {
+    position: relative;
+    top: -2vh;
+    left: 0;
+    font-size: 1.5em;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #888;
+}
