@@ -56,7 +56,7 @@ Template.agendaDay.helpers({
 });
 
 Template.agendaDay.onRendered(function() {
-	Meteor.setInterval(function(){
+	Meteor.setTimeout(function(){
 		$('select').material_select();
 		$('ul.notes_tab').tabs();
 		$('.note_container').show();
