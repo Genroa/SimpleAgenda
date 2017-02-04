@@ -27,7 +27,7 @@ Template.agendaDay.helpers({
 	},
 
 	currentMonth: function() {
-		return Router.current().params.month;
+		return Router.current().params.month-1;
 	},
 
 	currentDay: function() {
@@ -40,7 +40,7 @@ Template.agendaDay.helpers({
 
 	unNotedCourses: function() {
 		let year = parseInt(Router.current().params.year);
-		let month = parseInt(Router.current().params.month);
+		let month = parseInt(Router.current().params.month-1);
 		let day = parseInt(Router.current().params.day);
 		let date = new Date(year, month, day);
 
@@ -70,7 +70,7 @@ Template.agendaDay.events({
 		event.preventDefault();
 		let noteCourse = $('.new_note_form .note_course').val();
 		let year = parseInt(Router.current().params.year);
-		let month = parseInt(Router.current().params.month);
+		let month = parseInt(Router.current().params.month-1);
 		let day = parseInt(Router.current().params.day);
 		let date = new Date(year, month, day);
 

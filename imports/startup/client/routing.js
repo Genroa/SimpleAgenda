@@ -111,7 +111,7 @@ Router.route('/agenda/:year/:month/:day', {
 	name: 'agenda-day',
 	subscriptions: function() {
 		let year = parseInt(Router.current().params.year);
-		let month = parseInt(Router.current().params.month);
+		let month = parseInt(Router.current().params.month-1);
 		let day = parseInt(Router.current().params.day);
 
 		return [Meteor.subscribe("user-courses", Meteor.userId()), 
