@@ -10,6 +10,12 @@ Template.agendaMonth.helpers({
 	currentMonth: function(){
 		return Router.current().params.month;
 	},
+	previousMonth: function() {
+		//TODO
+	},
+	nextMonth: function() {
+		//TODO
+	},
 
 	daysInMonth: function() {
 		 // Since no month has fewer than 28 days
@@ -18,7 +24,7 @@ Template.agendaMonth.helpers({
 
 		 var date = new Date(year, month, 1);
 		 var days = [];
-		 
+
 		 while (date.getMonth() === month) {
 			days.push(new Date(date));
 			date.setDate(date.getDate() + 1);
@@ -26,4 +32,3 @@ Template.agendaMonth.helpers({
 		 return days;
 	}
 });
-
