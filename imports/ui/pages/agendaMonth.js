@@ -48,6 +48,15 @@ Template.agendaMonth.helpers({
 			date.setDate(date.getDate() + 1);
 		 }
 		 return days;
+	},
+
+	buildPreviousMonthDays: function(days) {
+		let firstDay = (days[0].getDay()+6)%7;
+		let blocs = "";
+		for(let i=0; i<firstDay; i++) {
+			blocs = blocs + "<td></td>";
+		}
+		return blocs;
 	}
 });
 
