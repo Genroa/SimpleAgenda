@@ -35,7 +35,12 @@ Template.agendaDay.helpers({
 	},
 
 	getNotes: function() {
-		return Note.find({});
+		let year = parseInt(Router.current().params.year);
+		let month = parseInt(Router.current().params.month-1);
+		let day = parseInt(Router.current().params.day);
+		let date = new Date(year, month, day);
+
+		return Note.find({date: date});
 	},
 
 	unNotedCourses: function() {
