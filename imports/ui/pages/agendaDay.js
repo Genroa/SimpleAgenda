@@ -22,6 +22,14 @@ Template.agendaDay.onCreated(function(){
 	this.doneTypingInterval = 800;
 });
 
+Template.agendaDay.onRendered(function() {
+	$('select').material_select();
+	$('.notes_tab').tabs({swipeable: true});
+	$('.note_container').show();
+	$('.content_area').trigger('autoresize');
+	$('#modal1').modal();
+});
+
 Template.agendaDay.helpers({
 	currentYear: function() {
 		return Router.current().params.year;
@@ -63,14 +71,6 @@ Template.agendaDay.helpers({
 	coursesCountNotNull: function(courses) {
 		return courses.length !== 0;
 	}
-});
-
-Template.agendaDay.onRendered(function() {
-	$('select').material_select();
-	$('ul.notes_tab').tabs({swipeable: true});
-	$('.note_container').show();
-	$('.content_area').trigger('autoresize');
-	$('#modal1').modal();
 });
 
 Template.agendaDay.events({

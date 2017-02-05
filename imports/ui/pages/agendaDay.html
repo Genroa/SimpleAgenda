@@ -13,7 +13,7 @@
 			<ul class="notes_tab tabs-fixed-with">
 				{{#each note in getNotes}}
 				<a href="#{{note._id}}" style="color: white">
-					<li class="tab col s3" style="background-color: {{getCourseColorById (note.course)}}">
+					<li class="tab col s3 valign-wrapper" style="background-color: {{getCourseColorById (note.course)}}">
 						{{getCourseNameById (note.course)}}
 						<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
 					</li>
@@ -23,7 +23,7 @@
 		</div>
 		<!-- Contents -->
 		{{#each note in getNotes}}
-		<div id="{{note._id}}" class="col s12">
+		<div id="{{note._id}}" class="col s12 tab-content">
 			<!-- textarea contenant le contenu -->
 			<form class="col s12">
 				<div class="row">

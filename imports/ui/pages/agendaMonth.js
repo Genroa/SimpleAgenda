@@ -5,6 +5,10 @@ import './agendaMonth.css';
 
 import '../components/dayBlock.js';
 
+areNotesDefined = function(day) {
+	let notes = Note.find({user: Meteor.userId(), date: day});
+	return notes.count() > 0;
+};
 
 Template.agendaMonth.helpers({
 	currentYear: function(){
@@ -106,9 +110,10 @@ Template.agendaMonth.helpers({
 		let month = Router.current().params.month;
 
 		for(let i = beginningOfWeek; i < beginningOfWeek+daysToWrite; i++) {
-			let day = days[i-daysNumberBeforeMonth].getDate();
-			output += "<td><a href='/agenda/"+year+"/"+month+"/"+day+"/'>"
-				+ "<div class='dayNumber'>"+day+"</div>"
+			let day = days[i-daysNumberBeforeMonth];
+
+			output += "<td"+(areNotesDefined(day) ? " style='border-left: 5px solid red'" : "")+"><a href='/agenda/"+year+"/"+month+"/"+day.getDate()+"/'>"
+				+ "<div class='dayNumber'>"+day.getDate()+"</div>"
 				+ "</a></td>";
 		}
 

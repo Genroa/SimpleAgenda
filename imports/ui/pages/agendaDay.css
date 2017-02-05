@@ -20,3 +20,7 @@
 .notes_tab .delete_note {
     float: right;
 }
+
+.tab-content {
+    background-color: #818181;
+}
