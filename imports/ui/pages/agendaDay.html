@@ -1,50 +1,51 @@
 <template name="agendaDay">
 	{{setTitle "Agenda"}}
-	
+
 	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
 	<br>
 	<a href="/agenda/{{currentYear}}/{{currentMonth}}">Agenda du mois</a>
 
 	<h1>Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}</h1>
-	
+
 	<div class="row note_container" style="display: none">
 		<div class="col s12">
 			<!-- Tabs -->
-			<ul class="notes_tab">
+			<ul class="notes_tab tabs-fixed-with">
 				{{#each note in getNotes}}
-					<a href="#{{note._id}}" style="color: white">
-						<li class="tab col s3" style="background-color: {{getCourseColorById (note.course)}}">
-							{{getCourseNameById (note.course)}}
-							<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
-						</li>
-					</a>
+				<a href="#{{note._id}}" style="color: white">
+					<li class="tab col s3" style="background-color: {{getCourseColorById (note.course)}}">
+						{{getCourseNameById (note.course)}}
+						<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
+					</li>
+				</a>
 				{{/each}}
 			</ul>
 		</div>
 		<!-- Contents -->
 		{{#each note in getNotes}}
-				<div id="{{note._id}}" class="col s12">
-					<!-- textarea contenant le contenu -->
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s12">
-								<textarea placeholder="Ecrivez votre note ici" note="{{note._id}}" class="materialize-textarea content_area">{{note.content}}</textarea>
-							</div>
-						</div>
-					</form>
+		<div id="{{note._id}}" class="col s12">
+			<!-- textarea contenant le contenu -->
+			<form class="col s12">
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea placeholder="Ecrivez votre note ici" note="{{note._id}}" class="materialize-textarea content_area">{{note.content}}</textarea>
+					</div>
 				</div>
+			</form>
+		</div>
 		{{/each}}
 	</div>
-	
-	<h4>Ajouter une note: </h4>
-	<form class="new_note_form">
-			<select class="note_course browser-default">
-				{{#each course in unNotedCourses}}
-					<option style="color: {{course.color}}" value="{{course._id}}">{{course.name}}</option>
+
+	{{#let courses=unNotedCourses}}
+		{{#if (coursesCountNotNull courses)}}
+			<button class="btn-floating btn-large waves-effect waves-light red add-button" href="#modal1"><i class="material-icons">add</i></button>
+		{{/if}}
+		<div id="modal1" class="modal bottom-sheet">
+			<div class="modal-content">
+				{{#each course in courses}}
+					<div class="courseSelector new_note" courseId="{{course._id}}"><i style="color: {{course.color}}"></i>{{course.name}}</div>
 				{{/each}}
-			</select>
-			<label>Matière:</label>
-		<br>
-		<a href="#" class="waves-effect waves-light btn submit_new_note pink darken-2">Créer une nouvelle note</a>
-	</form>
+			</div>
+		</div>
+	{{/let}}
 </template>

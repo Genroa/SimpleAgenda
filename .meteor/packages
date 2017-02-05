@@ -24,6 +24,7 @@ session
 iron:router
 jagi:astronomy
 fourseven:scss
-poetic:materialize-scss
 isjs:is
 meteorhacks:subs-manager
+materialize:materialize
+zodiase:material-design-icons-fonts

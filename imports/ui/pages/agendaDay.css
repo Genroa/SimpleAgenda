@@ -1,0 +1,22 @@
+.add-button {
+    float: right;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.courseSelector {
+    height: 5vh;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.notes_tab .tab {
+    height: 2em;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.notes_tab .delete_note {
+    float: right;
+}

@@ -1,6 +1,7 @@
 
 
 import './agendaDay.html';
+import './agendaDay.css';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 
@@ -52,23 +53,25 @@ Template.agendaDay.helpers({
 			}
 		});
 		return returnedCourses;
+	},
+
+	coursesCountNotNull: function(courses) {
+		return courses.length !== 0;
 	}
 });
 
 Template.agendaDay.onRendered(function() {
-	Meteor.setTimeout(function(){
-		$('select').material_select();
-		$('ul.notes_tab').tabs();
-		$('.note_container').show();
-		$('.content_area').trigger('autoresize');
-		console.log("initialisation faite");
-	}, 10);
+	$('select').material_select();
+	$('ul.notes_tab').tabs({swipeable: true});
+	$('.note_container').show();
+	$('.content_area').trigger('autoresize');
+	$('#modal1').modal();
 });
 
 Template.agendaDay.events({
-	'click .submit_new_note': function(event) {
+	'click .new_note': function(event) {
 		event.preventDefault();
-		let noteCourse = $('.new_note_form .note_course').val();
+		let noteCourse = $(event.target).attr("courseId");
 		let year = parseInt(Router.current().params.year);
 		let month = parseInt(Router.current().params.month-1);
 		let day = parseInt(Router.current().params.day);
@@ -80,8 +83,10 @@ Template.agendaDay.events({
 			} else {
 				console.log("Note créée");
 				$('ul.notes_tab').tabs();
+				$('#modal1').modal('close');
 			}
 		});
+
 	},
 
 	'click .delete_note' : function(event) {
@@ -105,5 +110,9 @@ Template.agendaDay.events({
 		//event.preventDefault();
 		clearTimeout(Template.instance().typingTimer);
 		console.log("key down");
+	},
+
+	'click .btn-floating': function(event) {
+		$('#modal1').modal('open');
 	}
 });
