@@ -112,7 +112,7 @@ Template.agendaMonth.helpers({
 		for(let i = beginningOfWeek; i < beginningOfWeek+daysToWrite; i++) {
 			let day = days[i-daysNumberBeforeMonth];
 
-			output += "<td"+(areNotesDefined(day) ? " style='border-left: 5px solid red'" : "")+"><a href='/agenda/"+year+"/"+month+"/"+day.getDate()+"/'>"
+			output += "<td"+(areNotesDefined(day) ? " class='courseContainer'" : "")+"><a href='/agenda/"+year+"/"+month+"/"+day.getDate()+"/'>"
 				+ "<div class='dayNumber'>"+day.getDate()+"</div>"
 				+ "</a></td>";
 		}

@@ -1,19 +1,21 @@
 table td {
     width: 14.2%;
-    border: solid 1px #CCC;
+    border: solid 1px #EEEEEE;
 }
 
 table th {
-    background-color: #E0E0E0;
-    border:  solid 1px #E0E0E0;
+    background-color: #EEEEEE;
+    border:  solid 1px #EEEEEE;
 }
 
 .dayNumber {
     position: relative;
-    top: -15px;
-    left: 0;
     font-size: 1.5em;
     font-family: 'Roboto';
     font-weight: bold;
     color: #888;
+}
+
+.courseContainer {
+    border-left: solid 5px #880E4F;
 }
