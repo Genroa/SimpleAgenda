@@ -41,7 +41,7 @@
 					{{#if currentUser }}
 					<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
 					<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
-					<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
+					<a class="mdl-navigation__link" href="#">Déconnexion</a>
 					{{else}}
 					<a class="mdl-navigation__link">Connectez vous</a>
 					{{/if}}
@@ -52,11 +52,11 @@
 			<span class="mdl-layout-title">Title</span>
 			<nav class="mdl-navigation">
 				{{#if currentUser }}
-				<li><a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
-				<li><a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
-				<li><a class="mdl-navigation__link logout" href="#">Déconnexion</a>
+				<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
+				<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
+				<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
 				{{else}}
-				<li><a class="mdl-navigation__link" href="#">Connectez vous</a>
+				<a class="mdl-navigation__link" href="#">Connectez vous</a>
 				{{/if}}
 			</nav>
 		</div>
