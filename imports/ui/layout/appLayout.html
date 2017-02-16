@@ -39,11 +39,11 @@
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 					{{#if currentUser }}
-					<li><a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a></li>
-					<li><a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a></li>
-					<li><a class="mdl-navigation__link" href="#">Déconnexion</a></li>
+					<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
+					<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
+					<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
 					{{else}}
-					<li><a class="mdl-navigation__link">Connectez vous</a></li>
+					<a class="mdl-navigation__link">Connectez vous</a>
 					{{/if}}
 				</nav>
 			</div>
@@ -52,11 +52,11 @@
 			<span class="mdl-layout-title">Title</span>
 			<nav class="mdl-navigation">
 				{{#if currentUser }}
-				<li><a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a></li>
-				<li><a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a></li>
-				<li><a class="mdl-navigation__link" href="#">Déconnexion</a></li>
+				<li><a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
+				<li><a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
+				<li><a class="mdl-navigation__link logout" href="#">Déconnexion</a>
 				{{else}}
-				<li><a class="mdl-navigation__link" href="#">Connectez vous</a></li>
+				<li><a class="mdl-navigation__link" href="#">Connectez vous</a>
 				{{/if}}
 			</nav>
 		</div>
