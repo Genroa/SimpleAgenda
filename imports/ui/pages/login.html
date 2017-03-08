@@ -45,15 +45,14 @@
 			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
 			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_username">Nom d'utilisateur</label>
 			                <input class="mdl-textfield__input" type="text" id="textfield_new_username" name="username" pattern="^[a-zA-Z0-9_-]{3,15}$"/>
-			                <span class="mdl-textfield__error">3-15 characters with only lowercase letters, digits, underscore, and hyphen</span>
+			                <span class="mdl-textfield__error">3 à 15 caractères</span>
 			            </div>
 			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
 			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_password">Mot de passe</label>
 			                <input class="mdl-textfield__input" type="password" id="textfield_new_password" name="password"
-			                        pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"/>
+			             	pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
 			                <span class="mdl-textfield__error">
-			                    6-20 characters with at least a digit, lowercase and uppercase letters,
-			                    and special symbol in @#$%
+			                    8 caractères minimum, 1 lettre et 1 nombre.
 			                </span>
 			            </div>
 			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
