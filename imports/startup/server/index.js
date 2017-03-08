@@ -6,6 +6,7 @@ Meteor.startup(() => {
 	import '../../api/courses/server/publications.js';
 	import '../../api/notes/server/publications.js';
 	import '../../api/achievements/server/publications.js';
+	import '../../api/achievements/server/achievements_list.js';
 	import '../../api/users/server/publications.js';
 	//import './fake_imports.js';
 });
