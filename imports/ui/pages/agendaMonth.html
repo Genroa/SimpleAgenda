@@ -1,57 +1,63 @@
 <template name="agendaMonth">
 	{{setTitle "Agenda"}}
-
-	<div class="container">
-		<div class="row">
-			<div class="valign-wrapper">
-				<div class="col s2 right-align valign">
-					<a class="btn-floating btn-large" href="/agenda/{{previousMonthLink (currentYear) (currentMonth)}}">&lsaquo;</a>
+	<div class="mdl-grid">
+		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--2dp">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
+					<a href="/agenda/{{previousMonthLink (currentYear) (currentMonth)}}" class="mdl-button mdl-js-button mdl-button--icon" style="text-align: center;">
+	  					<i class="material-icons">keyboard_arrow_left</i>
+					</a>
 				</div>
-				<div class="col s8 center-align valign">
-					<h3>
+				<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<h3 style="text-align: center;">
 						Agenda {{getNamedMonth (currentMonth)}} {{currentYear}}
 					</h3>
 				</div>
-				<div class="col s2 left-align" valign>
-					<a class="btn-floating btn-large" href="/agenda/{{nextMonthLink (currentYear) (currentMonth)}}">&rsaquo;</a>
+				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
+					<a href="/agenda/{{nextMonthLink (currentYear) (currentMonth)}}" class="mdl-button mdl-js-button mdl-button--icon" style="text-align: center;">
+	  					<i class="material-icons" style="text-align: center;">keyboard_arrow_right</i>
+					</a>
 				</div>
 			</div>
-		</div>
-		<table class="centered">
-	        <thead>
-	          	<tr>
-	              	<th>Lundi</th>
-	              	<th>Mardi</th>
-				  	<th>Mercredi</th>
-				  	<th>Jeudi</th>
-				  	<th>Vendredi</th>
-				  	<th>Samedi</th>
-				  	<th>Dimanche ("Manche")</th>
-	          	</tr>
-	        </thead>
+			<table class="month-table">
+		        <thead>
+		          	<tr>
+		              	<th>Lundi</th>
+		              	<th>Mardi</th>
+					  	<th>Mercredi</th>
+					  	<th>Jeudi</th>
+					  	<th>Vendredi</th>
+					  	<th>Samedi</th>
+					  	<th>Dimanche</th>
+		          	</tr>
+		        </thead>
 
-	        <tbody>
-				{{#let days=daysInMonth}}
-					<tr>
-						{{{buildWeek 0 days}}}
-					</tr>
-					<tr>
-						{{{buildWeek 1 days}}}
-					</tr>
-					<tr>
-						{{{buildWeek 2 days}}}
-					</tr>
-					<tr>
-						{{{buildWeek 3 days}}}
-					</tr>
-					<tr>
-						{{{buildWeek 4 days}}}
-					</tr>
-					<tr>
-						{{{buildWeek 5 days}}}
-					</tr>
-				{{/let}}
-	        </tbody>
-      	</table>
+		        <tbody>
+					{{#let days=daysInMonth}}
+						<tr>
+							{{{buildWeek 0 days}}}
+						</tr>
+						<tr>
+							{{{buildWeek 1 days}}}
+						</tr>
+						<tr>
+							{{{buildWeek 2 days}}}
+						</tr>
+						<tr>
+							{{{buildWeek 3 days}}}
+						</tr>
+						<tr>
+							{{{buildWeek 4 days}}}
+						</tr>
+						<tr>
+							{{{buildWeek 5 days}}}
+						</tr>
+					{{/let}}
+		        </tbody>
+	      	</table>
+		</div>
+		<div class="mdl-layout-spacer"></div>
 	</div>
+
 </template>
