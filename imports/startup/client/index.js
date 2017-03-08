@@ -12,6 +12,7 @@ Tracker.autorun(function() {
         SubscriptionManager.subscribe("user-courses", Meteor.userId());
         SubscriptionManager.subscribe("user-notes", Meteor.userId());
         SubscriptionManager.subscribe("achievements", Meteor.userId());
+        SubscriptionManager.subscribe("userData", Meteor.userId());
     } else {
         SubscriptionManager.clear();
     }
