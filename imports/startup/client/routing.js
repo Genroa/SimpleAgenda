@@ -13,9 +13,11 @@ sur toute l'application
 
 ApplicationController = RouteController.extend({
 	onBeforeAction: function() {
-		if(!this.ready() || Meteor.loggingIn()) {
+		if(!this.ready()) {
 			this.next();
-			//this.render('loading');
+		}
+		else if(Meteor.loggingIn()) {
+			this.render('loading');
 		}
 		else {
 			var user = Meteor.user();

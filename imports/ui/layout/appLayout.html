@@ -28,8 +28,8 @@
 	</div>
 	</nav>-->
 
-
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+<div>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
 				<!-- Title -->
@@ -38,31 +38,24 @@
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					{{#if currentUser }}
 					<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
 					<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
 					<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
-					{{else}}
-					<a class="mdl-navigation__link">Connectez vous</a>
-					{{/if}}
 				</nav>
 			</div>
 		</header>
-		<div class="mdl-layout__drawer">
-			<span class="mdl-layout-title">Title</span>
+		{{{isConnectedDrawerCSS}}}
+		<div class="mdl-layout__drawer" style="{{isConnected}}">
+			<span class="mdl-layout-title">Simple Agenda</span>
 			<nav class="mdl-navigation">
-				{{#if currentUser }}
-				<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
-				<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
-				<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
-				{{else}}
-				<a class="mdl-navigation__link" href="#">Connectez vous</a>
-				{{/if}}
+				<a class="mdl-navigation__link drawer_link" href="{{pathFor route='management'}}">Matières/activités</a>
+				<a class="mdl-navigation__link drawer_link" href="{{pathFor route='agenda'}}">Agenda</a>
+				<a class="mdl-navigation__link drawer_link logout" href="/">Déconnexion</a>
 			</nav>
 		</div>
 		<main class="mdl-layout__content">
 			<div class="page-content">{{> yield }}</div>
 		</main>
 	</div>
-
+</div>
 </template>
