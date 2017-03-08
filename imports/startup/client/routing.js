@@ -2,8 +2,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Router, RouteController } from 'meteor/iron:router';
 
-import '../../api/courses/definition.js';
-import '../../api/notes/definition.js';
 
 
 /* Controleur standard qui fait les v�rifications de base:

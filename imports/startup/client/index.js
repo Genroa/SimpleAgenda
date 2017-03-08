@@ -11,11 +11,13 @@ Tracker.autorun(function() {
     if(Meteor.userId()) {
         SubscriptionManager.subscribe("user-courses", Meteor.userId());
         SubscriptionManager.subscribe("user-notes", Meteor.userId());
+        SubscriptionManager.subscribe("achievements", Meteor.userId());
     } else {
         SubscriptionManager.clear();
     }
 });
 
+import './api_definitions.js';
 import './pages.js';
 import './routing.js';
 import './global_helpers.js';
