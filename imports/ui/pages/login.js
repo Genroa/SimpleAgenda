@@ -12,8 +12,8 @@ Template.login.events({
 		event.preventDefault();
 		Session.set("infoMessage", "Tentative de connexion...");
 
-		let pseudo = $('.login_form .pseudo').val();
-		let pwd = $('.login_form .password').val();
+		let pseudo = $('.login_form #textfield_username').val();
+		let pwd = $('.login_form #textfield_password').val();
 
 		Meteor.loginWithPassword(pseudo, pwd, function(err) {
 			if(!err) {
@@ -34,9 +34,9 @@ Template.login.events({
 		Session.set("infoMessage", undefined);
 		console.log("création du compte...");
 
-		let pseudo = $('.register_form .pseudo').val();
-		let email = $('.register_form .email').val();
-		let pwd = $('.register_form .password').val();
+		let pseudo = $('.register_form #textfield_new_username').val();
+		let email = $('.register_form textfield_new_email').val();
+		let pwd = $('.register_form #textfield_new_password').val();
 
 		let userInfos = {
 			username: pseudo,
@@ -53,14 +53,6 @@ Template.login.events({
 				Session.set("infoMessage", err.reason);
 			}
 		});
-	},
-
-	'click .toggle'(event) {
-		$('.container').stop().addClass('active');
-	},
-
-	'click .close'(event) {
-		$('.container').stop().removeClass('active');
 	}
 
 });

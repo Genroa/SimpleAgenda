@@ -23,11 +23,7 @@ Template.agendaDay.onCreated(function(){
 });
 
 Template.agendaDay.onRendered(function() {
-	$('select').material_select();
-	$('.notes_tab').tabs({'swipeable': true});
-	$('.note_container').show();
-	$('.content_area').trigger('autoresize');
-	$('#modal1').modal();
+
 });
 
 Template.agendaDay.helpers({

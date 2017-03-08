@@ -1,109 +1,78 @@
 <template name="login">
 	{{setTitle "Login/Sign Up"}}
-	<!--Login
-	<form name="login_form" class="login_form" method="post">
-		<input type="text" class="pseudo"><br>
-		<input type="password" class="password"><br>
-		<input type="submit" value="Se connecter">
-	</form>
-
-	Register
-	<form name="register_form" class="register_form" method="post">
-		Pseudo: <br>
-		<input type="text" class="pseudo" required><br>
-		Email: <br>
-		<input type="email" class="email" required><br>
-		Password: <br>
-		<input type="password" class="password"  name="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password2.pattern = this.value;" placeholder="Tapez votre mot de passe" required><br>
-		Repeat password: <br>
-		<input type="password" name="password2" class="password2" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');"  placeholder="Retapez le mot de passe" required><br>
-		<input type="submit" value="S'inscrire">
-	</form>
-
-	<span id="message_zone">{{getInfoMessage}}</span>-->
-	<!-- LOGIN FORM -->
-<div class="mdl-grid">
-
-    <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
-        <div class="mdl-card__title mdl-color--orange-800">
-            <h2 class="mdl-card__title-text mdl-color-text--white">User Login</h2>
-        </div>
-        <div class="mdl-card__supporting-text mdl-grid">
-
-            <b class="mdl-color-text--accent">Error message goes here</b>
+	<div class="mdl-grid">
+		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-card mdl-shadow--2dp">
+			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				<!--=====================
+				||		Tabs title 	   ||
+				======================-->
+					<div class="mdl-tabs__tab-bar mdl-card__title">
+						<a href="#login-panel" class="mdl-tabs__tab is-active">Connexion</a>
+						<a href="#register-panel" class="mdl-tabs__tab">Inscription</a>
+					</div>
 
 
-            <form method="POST" action="">
-                <input type="hidden" name="action" value="login"/>
-
-
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_username">Username</label>
-                    <input class="mdl-textfield__input" type="text" id="textfield_username" name="username"/>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password">Password</label>
-                    <input class="mdl-textfield__input" type="password" id="textfield_password" name="password"/>
-
-                </div>
-
-                <div class="mdl-cell mdl-cell--12-col send-button" align="center">
-
-                    <button type="submit"  class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
-                        Log In
-                    </button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<!-- REGISTER FORM -->
-<div class="mdl-grid" >
-    <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
-        <div class="mdl-card__title mdl-color--teal-500">
-            <h2 class="mdl-card__title-text mdl-color-text--white">Create a New Account</h2>
-        </div>
-        <div class="mdl-card__supporting-text mdl-grid">
-
-            <b class="mdl-color-text--accent">Error message goes here</b>
-
-
-            <form method="POST" action="">
-                <input type="hidden" name="action" value="register"/>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_username">Username</label>
-                    <input class="mdl-textfield__input" type="text" id="textfield_new_username" name="username" pattern="^[a-z0-9_-]{3,15}$"/>
-                    <span class="mdl-textfield__error">3-15 characters with only lowercase letters, digits, underscore, and hyphen</span>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_password">Password</label>
-                    <input class="mdl-textfield__input" type="password" id="textfield_new_password" name="password"
-                            pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"/>
-                    <span class="mdl-textfield__error">
-                        6-20 characters with at least a digit, lowercase and uppercase letters,
-                        and special symbol in @#$%
-                    </span>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password_confirm">Password Confirm</label>
-                    <input class="mdl-textfield__input" type="password" id="textfield_password_confirm" name="password_confirm"/>
-                </div>
-
-                <div class="mdl-cell mdl-cell--12-col send-button" align="center">
-                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" id="login">
-                        Register
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+				<!--=====================
+				||	  Tab connexion    ||
+				======================-->
+				<div class="mdl-card__supporting-text mdl-tabs__panel is-active" id="login-panel">
+					<b id="login-error" class="mdl-color-text--accent">{{ getInfoMessage }}</b>
+			        <form class="login_form" method="POST" action="">
+			            <input type="hidden" name="action" value="login"/>
+			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_username">Nom d'utilisateur</label>
+			                <input class="mdl-textfield__input" type="text" id="textfield_username" name="username" required/>
+			            </div>
+			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password">Mot de passe</label>
+			                <input class="mdl-textfield__input" type="password" id="textfield_password" name="password" required/>
+			            </div>
+			            <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+			                <button type="submit"  class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+			                    Connexion
+			                </button>
+			            </div>
+			        </form>
+				</div>
+				<!--=====================
+				||	 Tab inscription   ||
+				======================-->
+				<div class="mdl-card__supporting-text mdl-tabs__panel" id="register-panel">
+					<b class="mdl-color-text--accent">{{ getInfoMessage }}</b>
+			        <form class="register_form" method="POST" action="">
+			            <input type="hidden" name="action" value="register"/>
+			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_username">Nom d'utilisateur</label>
+			                <input class="mdl-textfield__input" type="text" id="textfield_new_username" name="username" pattern="^[a-zA-Z0-9_-]{3,15}$"/>
+			                <span class="mdl-textfield__error">3-15 characters with only lowercase letters, digits, underscore, and hyphen</span>
+			            </div>
+			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_password">Mot de passe</label>
+			                <input class="mdl-textfield__input" type="password" id="textfield_new_password" name="password"
+			                        pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"/>
+			                <span class="mdl-textfield__error">
+			                    6-20 characters with at least a digit, lowercase and uppercase letters,
+			                    and special symbol in @#$%
+			                </span>
+			            </div>
+			            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password_confirm">Confirmation du mot de passe</label>
+			                <input class="mdl-textfield__input" type="password" id="textfield_password_confirm" name="password_confirm"/>
+			            </div>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+			                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password_confirm">Email</label>
+			                <input class="mdl-textfield__input" type="email" id="textfield_new_email" name="password_confirm"/>
+			            </div>
+			            <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+			                <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" id="login">
+			                    Inscription
+			                </button>
+			            </div>
+			        </form>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-layout-spacer"></div>
+	</div>
 </template>
