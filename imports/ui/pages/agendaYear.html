@@ -7,60 +7,59 @@
 		<div class="mdl-layout-spacer"></div>
 		<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--2dp">
 			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
-					<button class="mdl-button mdl-js-button mdl-button--icon">
-  						<i class="material-icons">keyboard_arrow_left</i>
-					</button>
+				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
+					<a href="{{ previousYear }}" class="mdl-button mdl-js-button mdl-button--icon">
+	  					<i class="material-icons">keyboard_arrow_left</i>
+					</a>
 				</div>
-				<div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+				<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
 					<h3 style="text-align: center;">
 						Agenda {{currentYear}}
 					</h3>
 				</div>
-				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
-					<button class="mdl-button mdl-js-button mdl-button--icon">
-  						<i class="material-icons">keyboard_arrow_right</i>
-					</button>
+				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
+					<a href="{{ nextYear }}" class="mdl-button mdl-js-button mdl-button--icon">
+	  					<i class="material-icons">keyboard_arrow_right</i>
+					</a>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/1">Janvier</a>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/1">Janvier</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/2">Février</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/2">Février</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/3">Mars</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/3">Mars</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/4">Avril</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/4">Avril</a>
+				</div>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/5">Mai</a>
+				</div>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/6">Juin</a>
+				</div>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/7">Juillet</a>
+				</div>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/8">Aout</a>
 				</div>
 
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/5">Mai</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/9">Septembre</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/6">Juin</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/10">Octobre</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/7">Juillet</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/11">Novembre</a>
 				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/8">Aout</a>
-				</div>
-
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/9">Septembre</a>
-				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/10">Octobre</a>
-				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/11">Novembre</a>
-				</div>
-				<div class="col s6 m3">
-					<a class="btn btn-large btn-month" href="/agenda/{{currentYear}}/12">Décembre</a>
+				<div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored btn-month" href="/agenda/{{currentYear}}/12">Décembre</a>
 				</div>
 			</div>
 		</div>
