@@ -9,10 +9,11 @@
 		Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}
 	</center></h3>
 
-	<div class="row note_container" style="display: none">
+	<div class="row note_container">
 		<div class="col s12">
 			<!-- Tabs -->
 			<ul class="notes_tab tabs-fixed-with">
+				<li>toto</li>
 				{{#each note in getNotes}}
 				<a href="#{{note._id}}" style="color: white">
 					<li class="tab col s3 valign-wrapper" style="background-color: {{getCourseColorById (note.course)}}">
@@ -40,7 +41,7 @@
 
 	{{#let courses=unNotedCourses}}
 		{{#if (coursesCountNotNull courses)}}
-			<button class="btn-floating btn-large waves-effect waves-light red add-button" href="#modal1"><i class="material-icons">add</i></button>
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button"><i class="material-icons">add</i></button>
 		{{/if}}
 		<div id="modal1" class="modal bottom-sheet">
 			<div class="modal-content">

@@ -113,7 +113,7 @@ Template.agendaDay.events({
 		console.log("key down");
 	},
 
-	'click .btn-floating': function(event) {
-		$('#modal1').modal('open');
+	'click .add-button': function(event) {
+
 	}
 });
