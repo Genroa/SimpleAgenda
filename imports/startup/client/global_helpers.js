@@ -39,3 +39,11 @@ Template.registerHelper("getCourseColorById", function(id) {
 	let c = Course.findOne({_id: id});
 	return c && c.color;
 });
+
+Template.registerHelper("getUserAdsViewCount", function(givenUser) {
+	if(!givenUser) {
+		let user = Meteor.user();
+		return user && user.adsViewCount;
+	}
+	return givenUser && givenUser.adsViewCount;
+});

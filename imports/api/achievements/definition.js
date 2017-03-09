@@ -13,7 +13,9 @@ Achievement = Class.create({
 		achievementClass: {
 			type: String,
 			default: function() {return "Achievement";}
-		}
+		},
+		rewardDescription: String,
+		thumbnailHTML: String
 	},
 	
 	meteorMethods: {

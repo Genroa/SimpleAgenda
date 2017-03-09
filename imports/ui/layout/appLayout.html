@@ -7,22 +7,32 @@
 					<span class="mdl-layout-title">Simple Agenda</span>
 					<!-- Add spacer, to align navigation to the right -->
 					<div class="mdl-layout-spacer"></div>
-					<!-- Navigation. We hide it in small screens. -->
+					
+					<!-- Partie qui reste toujours visible -->
+					<nav class="mdl-navigation">
+						{{#if currentUser }}
+						<div class="">{{getUserAdsViewCount currentUser}}</div>
+						{{/if}}
+					</nav>
+					
+					<!-- Partie remplacée par un drawer en écrans plus petits -->
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 						{{#if currentUser }}
 						<a class="mdl-navigation__link" href="{{pathFor route='management'}}">Matières/activités</a>
 						<a class="mdl-navigation__link" href="{{pathFor route='agenda'}}">Agenda</a>
+						<a class="mdl-navigation__link" href="{{pathFor route='profile'}}">Mon compte</a>
 						<a class="mdl-navigation__link logout" href="#">Déconnexion</a>
 						{{/if}}
 					</nav>
 				</div>
 			</header>
-			{{{isConnectedDrawerCSS}}}
+			{{{additionalDrawerCSS}}}
 			<div class="mdl-layout__drawer" style="{{isConnected}}">
 				<span class="mdl-layout-title">Simple Agenda</span>
 				<nav class="mdl-navigation">
 					<a class="mdl-navigation__link drawer_link" href="{{pathFor route='management'}}">Matières/activités</a>
 					<a class="mdl-navigation__link drawer_link" href="{{pathFor route='agenda'}}">Agenda</a>
+					<a class="mdl-navigation__link drawer_link" href="{{pathFor route='profile'}}">Mon compte</a>
 					<a class="mdl-navigation__link drawer_link logout" href="/">Déconnexion</a>
 				</nav>
 			</div>

@@ -55,6 +55,18 @@ Router.route('/', {
 });
 
 
+// Profile
+Router.route('/profile', {
+	name: 'profile',
+	data: function(){
+		return {"achievements" : Achievement.find({})};
+	},
+	action: function() {
+		this.render('profile');
+	}
+});
+
+
 // Login/register
 Router.route('/login', {
 	name: 'login',

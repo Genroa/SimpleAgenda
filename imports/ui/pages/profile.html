@@ -1,0 +1,35 @@
+<template name="profile">
+	{{setTitle "Profil"}}
+	<div class="mdl-grid">
+		<div class=" mdl-cell mdl-cell--12-col">
+			<h2>Mon profil:</h2>
+		</div>
+
+		<div class=" mdl-cell mdl-cell--12-col">
+			<h3>Achievements:</h3>
+		</div>
+		{{#each achievement in achievements}}
+			<div class=" mdl-cell mdl-cell--1-col">
+				{{#if (userUnlockedAchievement achievement)}}
+					<div class="achievement_thumbnail" id="{{achievement._id}}">
+						<div class="achievement_content">
+							{{{achievement.thumbnailHTML}}}
+						</div>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--large" for="{{achievement._id}}">
+						{{achievement.name}} <hr> {{achievement.rewardDescription}}
+					</div>
+				{{else}}
+					<div class="achievement_thumbnail" id="{{achievement._id}}">
+						<div class="achievement_content">
+							<span>?</span>
+						</div>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--large" for="{{achievement._id}}">
+						{{achievement.name}} <hr> Débloquez cet achievement pour découvrir ce qu'il vous offre!
+					</div>
+				{{/if}}
+			</div>
+		{{/each}}
+	</div>
+</template>
