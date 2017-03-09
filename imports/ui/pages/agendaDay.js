@@ -114,6 +114,17 @@ Template.agendaDay.events({
 	},
 
 	'click .add-button': function(event) {
+		var state = $('.add-button').attr('state');
+		if (state == 'closed') {
+			$('#modal').removeClass('animated fadeOutDown');
+			$('#modal').removeClass('hidden');
+			$('#modal').addClass('animated fadeInUp');
+			$('.add-button').attr('state', 'open');
+		} else {
+			$('#modal').removeClass('animated fadeInUp');
+			$('#modal').addClass('animated fadeOutDown');
+			$('.add-button').attr('state', 'closed');
+		}
 
 	}
 });

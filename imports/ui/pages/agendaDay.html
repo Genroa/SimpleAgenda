@@ -41,12 +41,18 @@
 
 	{{#let courses=unNotedCourses}}
 		{{#if (coursesCountNotNull courses)}}
-			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button"><i class="material-icons">add</i></button>
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button" state='closed'><i class="material-icons">add</i></button>
 		{{/if}}
-		<div id="modal1" class="modal bottom-sheet">
-			<div class="modal-content">
+		<div id="modal" class="mdl-card mdl-shadow--2dp card-modal hidden">
+			<div class="mdl-card__title">
+    			<h2 class="mdl-card__title-text">Choisissez un cours pour lequel créer une note</h2>
+  			</div>
+			<div class="mdl-card__supporting-text">
 				{{#each course in courses}}
-					<div class="courseSelector new_note" courseId="{{course._id}}"><i style="color: {{course.color}}"></i>{{course.name}}</div>
+					<div class="courseSelector new_note" courseId="{{course._id}}">
+						<div style="background-color: {{course.color}}"></div>
+						{{course.name}}
+					</div>
 				{{/each}}
 			</div>
 		</div>

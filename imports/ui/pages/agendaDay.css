@@ -3,6 +3,13 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 9999;
+}
+
+.card-modal {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .courseSelector {
@@ -10,6 +17,14 @@
     font-size: 1.3em;
     cursor: pointer;
 }
+
+    .courseSelector div {
+        float: left;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
 
 .notes_tab .tab {
     height: 2em;
