@@ -7,24 +7,23 @@
 }
 
 .card-modal {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
 
 .courseSelector {
-    height: 5vh;
     font-size: 1.3em;
     cursor: pointer;
 }
 
-    .courseSelector div {
-        float: left;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin-right: 15px;
-    }
+.courseSelector div {
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
 
 .notes_tab .tab {
     height: 2em;
