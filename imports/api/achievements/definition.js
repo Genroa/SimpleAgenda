@@ -3,6 +3,7 @@ import { Class } from "meteor/jagi:astronomy";
 
 
 
+
 Achievement = Class.create({
 	name: 'Achievement',
 
@@ -15,7 +16,8 @@ Achievement = Class.create({
 			default: function() {return "Achievement";}
 		},
 		rewardDescription: String,
-		thumbnailHTML: String
+		thumbnailHTML: String,
+		unlockFunction: String
 	},
 	
 	meteorMethods: {
@@ -24,6 +26,8 @@ Achievement = Class.create({
 			
 			let user = Meteor.user();
 			if(!user) return;
+
+			global[this.unlockFunction](user);
 
 			user.achievements[this._id] = true;
 		},
