@@ -1,0 +1,28 @@
+
+
+.color_palette_container {
+	position: relative;
+	overflow: hidden;
+}
+
+.color_palette_container:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.color_palette_container .color_palette {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%; 
+	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+}
+
+.color_palette_container .color_palette input {
+	text-align: center;
+}

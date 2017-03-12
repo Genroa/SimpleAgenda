@@ -4,15 +4,15 @@
 		<div class="mdl-layout-spacer"></div>
 		<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--2dp">
 			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
+				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle" style="text-align: center;">
 					<a href="/agenda/{{previousMonthLink (currentYear) (currentMonth)}}" class="mdl-button mdl-js-button mdl-button--icon">
 	  					<i class="material-icons">keyboard_arrow_left</i>
 					</a>
 				</div>
-				<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone mdl-cell--middle">
-					<h3 style="text-align: center;">
+				<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone mdl-cell--middle" style="text-align: center;">
+					<h4 style="text-align: center;">
 						Agenda {{getNamedMonth (currentMonth)}} {{currentYear}}
-					</h3>
+					</h4>
 				</div>
 				<div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet mdl-cell--1-col-phone mdl-cell--middle">
 					<a href="/agenda/{{nextMonthLink (currentYear) (currentMonth)}}" class="mdl-button mdl-js-button mdl-button--icon">
@@ -50,7 +50,7 @@
 
 					<!-- Build calendar blocks -->
 					{{#each day in days}}
-						<div class="calendar_block dayNumber"><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">{{day.getDate}}</a></div>
+						<div class="calendar_block dayNumber  {{buildDynamicCSSForDay day}}"><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">{{day.getDate}}</a></div>
 					{{/each}}
 					{{#let daysAfterCount = (daysAfterMonth days)}}
 						{{#if daysAfterCount }}

@@ -5,10 +5,7 @@ import './agendaMonth.css';
 
 import '../components/dayBlock.js';
 
-areNotesDefined = function(day) {
-	let notes = Note.find({user: Meteor.userId(), date: day});
-	return notes.count() > 0;
-};
+
 
 Template.agendaMonth.helpers({
 	currentYear: function(){
@@ -64,5 +61,10 @@ Template.agendaMonth.helpers({
 	daysAfterMonth: function(days) {
 		let day = days[days.length-1];
 		return (7 - day.getDay())%7;
+	},
+
+	buildDynamicCSSForDay: function(day) {
+		let notes = Note.find({user: Meteor.userId(), date: day});
+		return (notes.count() > 0 ? "courseContainer" : "");
 	}
 });

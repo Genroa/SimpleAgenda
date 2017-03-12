@@ -1,6 +1,7 @@
 
 
 import { Session } from 'meteor/session';
+import './colorPalette.css';
 import './colorPalette.html';
 
 

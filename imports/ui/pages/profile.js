@@ -1,5 +1,6 @@
 
 import '../components/colorPalette.js';
+import './profile.css';
 import './profile.html';
 
 

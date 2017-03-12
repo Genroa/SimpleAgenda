@@ -8,7 +8,6 @@
 			<h3>Ma palette de couleurs:</h3>
 		</div>
 		{{#each color in getUserDefinedColors}}
-			<!-- <div class="jscolor" id="color_palette_{{@index}}" style="display: none;"></div>-->
 			<div class=" mdl-cell mdl-cell--1-col" style="padding-bottom: calc(8.3333333333% - 16px); position: relative;">
 				{{>color_palette_component index=@index color=color}}
 			</div>

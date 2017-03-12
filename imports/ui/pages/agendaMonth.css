@@ -8,7 +8,7 @@
 }
 
 .courseContainer {
-	border-left: solid 5px #880E4F;
+	border-left: solid 5px #880E4F !important;
 }
 
 
@@ -37,6 +37,10 @@
 	text-decoration: none !important;
 	color: #888;
 	font-weight: 900;
+
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .calendar_container > .calendar_block.calendar_header {
