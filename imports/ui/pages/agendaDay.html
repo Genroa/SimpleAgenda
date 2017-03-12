@@ -39,8 +39,11 @@
 	</div>
 
 	{{#let courses=unNotedCourses}}
-		{{#if (coursesCountNotNull courses)}}
-			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button" state='closed'><i class="material-icons">add</i></button>
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button" state='closed'><i class="material-icons">add</i></button>
+		{{#if (coursesCountNull courses)}}
+			<p>
+				<a href="{{pathFor 'management'}}">Créez un cours!</a>
+			</p>
 		{{/if}}
 		<div id="modal" class="mdl-card mdl-shadow--2dp card-modal hidden">
 			<div class="mdl-card__title">

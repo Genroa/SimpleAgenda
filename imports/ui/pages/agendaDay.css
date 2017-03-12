@@ -11,7 +11,12 @@
     bottom: 0;
     width: 100%;
     box-shadow: 0px -5px 10px #EFEFEF;
+    max-height: 50vh;
 }
+
+    .card-modal .mdl-card__supporting-text{
+        overflow: scroll;
+    }
 
 .courseSelector {
     font-size: 1.3em;

@@ -64,14 +64,19 @@ Template.agendaDay.helpers({
 		return returnedCourses;
 	},
 
-	coursesCountNotNull: function(courses) {
-		return courses.length !== 0;
+	coursesCountNull: function(courses) {
+		return courses.length == 0;
 	}
 });
 
 Template.agendaDay.events({
 	'click .new_note': function(event) {
 		event.preventDefault();
+
+		$('#modal').removeClass('animated fadeInUp');
+		$('#modal').addClass('animated fadeOutDown');
+		$('.add-button').attr('state', 'closed');
+
 		let noteCourse = $(event.target).attr("courseId");
 		let year = parseInt(Router.current().params.year);
 		let month = parseInt(Router.current().params.month-1);
@@ -119,10 +124,12 @@ Template.agendaDay.events({
 			$('#modal').removeClass('animated fadeOutDown');
 			$('#modal').removeClass('hidden');
 			$('#modal').addClass('animated fadeInUp');
+			//$('.add-button i').innerHTML('close');
 			$('.add-button').attr('state', 'open');
 		} else {
 			$('#modal').removeClass('animated fadeInUp');
 			$('#modal').addClass('animated fadeOutDown');
+		//	$('.add-button i').innerHTML('add');
 			$('.add-button').attr('state', 'closed');
 		}
 
