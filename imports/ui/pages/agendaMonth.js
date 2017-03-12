@@ -63,7 +63,7 @@ Template.agendaMonth.helpers({
 
 	daysAfterMonth: function(days) {
 		let day = days[days.length-1];
-		return (7 - day.getDay());
+		return (7 - day.getDay())%7;
 	},
 
 	buildPreviousMonthDays: function(days) {

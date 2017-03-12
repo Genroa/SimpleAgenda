@@ -43,8 +43,11 @@
 					{{#each day in days}}
 						<div class="calendar_block"><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">{{day.getDate}}</a></div>
 					{{/each}}
-
-					<div class="calendar_block" style="width: calc({{daysAfterMonth days}}*14.28611%)"></div>
+					{{#let daysAfterCount = (daysAfterMonth days)}}
+						{{#if daysAfterCount }}
+							<div class="calendar_block" style="width: calc({{daysAfterMonth days}}*14.28611%)"></div>
+						{{/if}}
+					{{/let}}
 				{{/let}}
 			</div>
 
