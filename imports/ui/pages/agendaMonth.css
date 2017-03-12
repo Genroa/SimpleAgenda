@@ -1,24 +1,3 @@
-.month-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-.month-table td {
-	width: 14.2%;
-	border: solid 1px #EEEEEE;
-	padding: 15px;
-	margin-left: 15px;
-}
-
-.month-table td a {
-	text-decoration: none;
-}
-
-.month-table th {
-	background-color: #EEEEEE;
-	border:  solid 1px #EEEEEE;
-	padding: 15px;
-}
 
 .dayNumber {
 	position: relative;
