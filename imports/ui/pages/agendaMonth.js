@@ -57,6 +57,15 @@ Template.agendaMonth.helpers({
 		 return days;
 	},
 
+	daysBeforeMonth: function(days) {
+		return (days[0].getDay()+6)%7;
+	},
+
+	daysAfterMonth: function(days) {
+		let day = days[days.length-1];
+		return (7 - day.getDay());
+	},
+
 	buildPreviousMonthDays: function(days) {
 		console.log("call");
 		let firstDay = (days[0].getDay()+6)%7;

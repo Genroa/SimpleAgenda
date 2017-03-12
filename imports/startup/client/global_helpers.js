@@ -47,3 +47,59 @@ Template.registerHelper("getUserAdsViewCount", function(givenUser) {
 	}
 	return givenUser && givenUser.adsViewCount;
 });
+
+
+Template.registerHelper("range", function(start, end, loopStep) {
+	var range = [];
+	var typeofStart = typeof start;
+	var typeofEnd = typeof end;
+
+	if (loopStep === 0) {
+		throw TypeError("Step cannot be zero.");
+	}
+	
+	console.log(start);
+	console.log(end);
+	console.log(loopStep);
+
+	if (typeofStart == "undefined" || typeofEnd == "undefined") {
+		throw TypeError("Must pass start and end arguments.");
+	} else if (typeofStart != typeofEnd) {
+		throw TypeError("Start and end arguments must be of same type.");
+	}
+
+	if(typeof loopStep == "undefined") {
+		throw TypeError("Muss define step in range.");
+	}
+
+	if (end < start) {
+		loopStep = -loopStep;
+	}
+
+	if (typeofStart == "number") {
+		console.log(end >= start);
+		while (loopStep > 0 ? end > start : end < start) {
+			range.push(start);
+			start += loopStep;
+		}
+
+	} else if (typeofStart == "string") {
+
+		if (start.length != 1 || end.length != 1) {
+			throw TypeError("Only strings with one character are supported.");
+		}
+
+		start = start.charCodeAt(0);
+		end = end.charCodeAt(0);
+
+		while (loopStep > 0 ? end > start : end < start) {
+			range.push(String.fromCharCode(start));
+			start += loopStep;
+		}
+
+	} else {
+		throw TypeError("Only string and number types are supported");
+	}
+
+	return range;
+});

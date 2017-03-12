@@ -1,33 +1,48 @@
 .month-table {
-    width: 100%;
-    border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .month-table td {
-    width: 14.2%;
-    border: solid 1px #EEEEEE;
-    padding: 15px;
-    margin-left: 15px;
+	width: 14.2%;
+	border: solid 1px #EEEEEE;
+	padding: 15px;
+	margin-left: 15px;
 }
 
 .month-table td a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .month-table th {
-    background-color: #EEEEEE;
-    border:  solid 1px #EEEEEE;
-    padding: 15px;
+	background-color: #EEEEEE;
+	border:  solid 1px #EEEEEE;
+	padding: 15px;
 }
 
 .dayNumber {
-    position: relative;
-    font-size: 1.5em;
-    font-family: 'Roboto';
-    font-weight: 900;
-    color: #888;
+	position: relative;
+	font-size: 1.5em;
+	font-family: 'Roboto';
+	font-weight: 900;
+	color: #888;
 }
 
 .courseContainer {
-    border-left: solid 5px #880E4F;
+	border-left: solid 5px #880E4F;
+}
+
+
+.calendar_container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;
+	border: 1px solid black;
+}
+
+.calendar_container > .calendar_block {
+	width: 14%;
+	min-height: 30px;
+	border: 1px solid black;
+	box-sizing: border-box;
 }
