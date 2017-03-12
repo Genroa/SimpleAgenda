@@ -38,6 +38,9 @@
 	flex-flow: row wrap;
 	align-items: stretch;
 	border: 1px solid black;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .calendar_container > .calendar_block {
@@ -45,4 +48,6 @@
 	min-height: 30px;
 	border: 1px solid black;
 	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
