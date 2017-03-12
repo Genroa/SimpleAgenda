@@ -22,7 +22,7 @@
 
 .dayNumber {
 	position: relative;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	font-family: 'Roboto';
 	font-weight: 900;
 	color: #888;
@@ -34,20 +34,33 @@
 
 
 .calendar_container {
+	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: stretch;
-	border: 1px solid black;
+
 	box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
 .calendar_container > .calendar_block {
-	width: 14.28611%;
+	width: 14.28571428571%;
 	min-height: 30px;
-	border: 1px solid black;
+	border: solid 0.5px #EEEEEE;
 	box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 2%;
+}
+
+.calendar_container > .calendar_block > a {
+	text-decoration: none !important;
+	color: #888;
+	font-weight: 900;
+}
+
+.calendar_container > .calendar_block.calendar_header {
+	background-color: #EEEEEE;
+	font-weight: bold;
 }

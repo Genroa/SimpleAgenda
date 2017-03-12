@@ -22,13 +22,22 @@
 			</div>
 
 			<div class="calendar_container">
-				<div class="calendar_block">Lun.</div>
-				<div class="calendar_block">Ma.</div>
-				<div class="calendar_block">Me.</div>
-				<div class="calendar_block">Jeu.</div>
-				<div class="calendar_block">Ven.</div>
-				<div class="calendar_block">Sam.</div>
-				<div class="calendar_block">Dim.</div>
+				<!-- Headers -->
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Lundi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Mardi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Mercredi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Jeudi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Vendredi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Samedi</div>
+				<div class="calendar_block calendar_header mdl-layout--large-screen-only">Dimanche</div>
+
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Lu.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Ma.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Me.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Je.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Ve.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Sa.</div>
+				<div class="calendar_block calendar_header mdl-layout--small-screen-only">Di.</div>
 
 				{{#let days = daysInMonth}}
 
@@ -41,15 +50,17 @@
 
 					<!-- Build calendar blocks -->
 					{{#each day in days}}
-						<div class="calendar_block"><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">{{day.getDate}}</a></div>
+						<div class="calendar_block dayNumber"><a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">{{day.getDate}}</a></div>
 					{{/each}}
 					{{#let daysAfterCount = (daysAfterMonth days)}}
 						{{#if daysAfterCount }}
-							<div class="calendar_block" style="width: calc({{daysAfterMonth days}}*14.28611%)"></div>
+							<div class="calendar_block" style="width: calc({{daysAfterMonth days}}*14.28571428571%)"></div>
 						{{/if}}
 					{{/let}}
 				{{/let}}
 			</div>
+
+			<!--
 
 			<table class="month-table">
 		        <thead>
@@ -87,6 +98,7 @@
 					{{/let}}
 		        </tbody>
 	      	</table>
+	        -->
 		</div>
 		<div class="mdl-layout-spacer"></div>
 	</div>
