@@ -1,7 +1,8 @@
-
+'esversion: 6';
 
 import './agendaDay.html';
 import './agendaDay.css';
+import '../components/dynTabs.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 
@@ -15,7 +16,7 @@ doneTyping = function(element) {
 			$('.content_area').trigger('autoresize');
 		}
 	});
-}
+};
 
 Template.agendaDay.onCreated(function(){
 	this.typingTimer;
@@ -23,7 +24,7 @@ Template.agendaDay.onCreated(function(){
 });
 
 Template.agendaDay.onRendered(function() {
-
+	$('#modal').addClass('modal-fade-out');
 });
 
 Template.agendaDay.helpers({
@@ -65,7 +66,33 @@ Template.agendaDay.helpers({
 	},
 
 	coursesCountNull: function(courses) {
-		return courses.length == 0;
+		return courses.length === 0;
+	},
+
+	getWeekFromDay: function() {
+		let weekDays = [];
+		let year = parseInt(Router.current().params.year);
+		let month = parseInt(Router.current().params.month-1);
+		let dayNumber = parseInt(Router.current().params.day);
+		let day = new Date(year, month, dayNumber);
+		let dayNumberInWeek = day.getDay();
+		let numberFirstDayOfWeek = dayNumber - dayNumberInWeek + 1;
+
+		console.log(dayNumber + "-" + dayNumberInWeek + "=" + (dayNumber - dayNumberInWeek));
+		for (let i = numberFirstDayOfWeek; i < numberFirstDayOfWeek + 7; i++) {
+			let d = new Date(year, month, i);
+			weekDays.push(d);
+		}
+
+		console.log(weekDays);
+
+		return weekDays;
+	},
+
+	getNumberOfTasks: function(day) {
+		let notes = Note.find({user: Meteor.userId(), date: day});
+		let count = notes.count()
+		return count + (count > 1?" notes":" note");
 	}
 });
 
@@ -73,8 +100,9 @@ Template.agendaDay.events({
 	'click .new_note': function(event) {
 		event.preventDefault();
 
-		$('#modal').removeClass('animated fadeInUp');
-		$('#modal').addClass('animated fadeOutDown');
+		//$('#modal').removeClass('animated fadeInUp');
+		$('#modal').addClass('modal-fade-out');
+		$('.add-button i').html('add');
 		$('.add-button').attr('state', 'closed');
 
 		let noteCourse = $(event.target).attr("courseId");
@@ -88,8 +116,7 @@ Template.agendaDay.events({
 				console.log(err.reason);
 			} else {
 				console.log("Note créée");
-				$('ul.notes_tab').tabs();
-				$('#modal1').modal('close');
+
 			}
 		});
 
@@ -121,15 +148,17 @@ Template.agendaDay.events({
 	'click .add-button': function(event) {
 		var state = $('.add-button').attr('state');
 		if (state == 'closed') {
-			$('#modal').removeClass('animated fadeOutDown');
-			$('#modal').removeClass('hidden');
-			$('#modal').addClass('animated fadeInUp');
-			//$('.add-button i').innerHTML('close');
+			//$('#modal').removeClass('animated fadeOutDown');
+			//$('#modal').removeClass('hidden');
+			//$('#modal').addClass('animated fadeInUp');
+			$('#modal').removeClass('modal-fade-out');
+			$('.add-button i').html('close');
 			$('.add-button').attr('state', 'open');
 		} else {
-			$('#modal').removeClass('animated fadeInUp');
-			$('#modal').addClass('animated fadeOutDown');
-		//	$('.add-button i').innerHTML('add');
+			//$('#modal').removeClass('animated fadeInUp');
+		//	$('#modal').addClass('animated fadeOutDown');
+			$('#modal').addClass('modal-fade-out');
+			$('.add-button i').html('add');
 			$('.add-button').attr('state', 'closed');
 		}
 

@@ -1,62 +1,115 @@
 <template name="agendaDay">
 	{{setTitle "Agenda"}}
 
-	<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
-	<br>
-	<a href="/agenda/{{currentYear}}/{{currentMonth}}">Agenda du mois</a>
 
-	<h3><center>
-		Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}
-	</center></h3>
+	<div class="mdl-grid layout-page">
+		<div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone mdl-shadow--2dp menu-left">
+			<a href="/agenda/{{currentYear}}">Agenda de l'année</a>
+			<br>
+			<a href="/agenda/{{currentYear}}/{{currentMonth}}">Agenda du mois</a>
 
-	<div class="row note_container">
-		<div class="col s12">
-			<!-- Tabs -->
-			<ul class="notes_tab tabs-fixed-with">
-				{{#each note in getNotes}}
-				<a href="#{{note._id}}" style="color: white">
-					<li class="tab col s3 valign-wrapper" style="background-color: {{getCourseColorById (note.course)}}">
-						{{getCourseNameById (note.course)}}
-						<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
-					</li>
-				</a>
-				{{/each}}
-			</ul>
+			<div class="days-list">
+				<ul class='mdl-list'>
+					{{#each day in getWeekFromDay}}
+						<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
+							<li class="mdl-list__item mdl-list__item--three-line">
+								<span class="mdl-list__item-primary-content">
+									<div class="mdl-list__item-avatar avatar-text">
+										{{day.getDate}}
+									</div>
+									<span>{{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (day.getDate)}}</span>
+									<span class="mdl-list__item-text-body">
+										{{getNumberOfTasks (day)}}
+									</span>
+								</span>
+							</li>
+						</a>
+					{{/each}}
+				</ul>
+			</div>
 		</div>
-		<!-- Contents -->
-		{{#each note in getNotes}}
-		<div id="{{note._id}}" class="col s12 tab-content">
-			<!-- textarea contenant le contenu -->
-			<form class="col s12">
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea placeholder="Ecrivez votre note ici" note="{{note._id}}" class="materialize-textarea content_area">{{note.content}}</textarea>
+		<div class="mdl-cell mdl-cell--9-col">
+			<h3><center>
+				Notes pour le {{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (currentDay)}} {{currentDay}} {{getNamedMonth (currentMonth)}} {{currentYear}}
+			</center></h3>
+
+			{{#each note in getNotes}}
+			<div class="course-note-card-container">
+				<div class="course-note-card mdl-card mdl-shadow--2dp">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">{{getCourseNameById (note.course)}}</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						{{note.content}}
+					</div>
+					<div class="mdl-card__menu">
+						<div class="options-buttons">
+							<button class="mdl-button mdl-js-button mdl-button--icon delete_note" value="{{note._id}}">
+								<i class="material-icons">delete</i>
+							</button>
+							<button class="mdl-button mdl-js-button mdl-button--icon">
+								<i class="material-icons">edit</i>
+							</button>
+						</div>
 					</div>
 				</div>
-			</form>
+			</div>
+			{{/each}}
+
 		</div>
-		{{/each}}
 	</div>
 
-	{{#let courses=unNotedCourses}}
+	<!--{{> dynTabs notes=getNotes}}-->
+			<!--<div class="col s12">
+
+				<ul class="notes_tab tabs-fixed-with">
+					{{#each note in getNotes}}
+					<a href="#{{note._id}}" style="color: white">
+						<li class="tab col s3 valign-wrapper" style="background-color: {{getCourseColorById (note.course)}}">
+							{{getCourseNameById (note.course)}}
+							<a href="#" class="delete_note" value="{{note._id}}"><i value="{{note._id}}" class="close material-icons">close</i></a>
+						</li>
+					</a>
+					{{/each}}
+				</ul>
+			</div>-->
+			<!-- Contents -->
+			<!--{{#each note in getNotes}}
+			<div id="{{note._id}}" class="col s12 tab-content">
+
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea placeholder="Ecrivez votre note ici" note="{{note._id}}" class="materialize-textarea content_area">{{note.content}}</textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			{{/each}}
+		</div>-->
+
+		<!-- =============================
+				  Bottom selector
+		============================== -->
+		{{#let courses=unNotedCourses}}
 		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add-button" state='closed'><i class="material-icons">add</i></button>
-		{{#if (coursesCountNull courses)}}
-			<p>
-				<a href="{{pathFor 'management'}}">Créez un cours!</a>
-			</p>
-		{{/if}}
-		<div id="modal" class="mdl-card mdl-shadow--2dp card-modal hidden">
+		<div id="modal" class="mdl-card mdl-shadow--2dp card-modal">
 			<div class="mdl-card__title">
-    			<h2 class="mdl-card__title-text">Choisissez un cours pour lequel créer une note</h2>
-  			</div>
+				<h2 class="mdl-card__title-text">Choisissez un cours pour lequel créer une note</h2>
+			</div>
+			{{#if (coursesCountNull courses)}}
+			<p>
+				<a href="{{pathFor 'management'}}">Vous n'avez aucun cours à ajouter! Crééez en un!</a>
+			</p>
+			{{/if}}
 			<div class="mdl-card__supporting-text">
 				{{#each course in courses}}
-					<div class="courseSelector new_note" courseId="{{course._id}}">
-						<div style="background-color: {{course.color}}"></div>
-						{{course.name}}
-					</div>
+				<div class="courseSelector new_note" courseId="{{course._id}}">
+					<div style="background-color: {{course.color}}"></div>
+					{{course.name}}
+				</div>
 				{{/each}}
 			</div>
 		</div>
-	{{/let}}
-</template>
+		{{/let}}
+	</template>
