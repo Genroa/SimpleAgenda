@@ -103,3 +103,8 @@ Template.registerHelper("range", function(start, end, loopStep) {
 
 	return range;
 });
+
+Template.registerHelper("getUserDefinedColors", function() {
+	let user = Meteor.user();
+	return user && user.definedColors && Object.values(user.definedColors);
+});

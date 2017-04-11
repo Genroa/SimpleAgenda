@@ -13,11 +13,19 @@
 	</ul>
 
 	<br>
+
 	<form class="new_course_form">
 		<input type="text" class="course_name" required>
 		<br>
 		<input class="course_color jscolor" value="#000000" required>
 		<br>
+		<select id="color">
+			{{#each color in getUserDefinedColors}}
+				<option class="" value="{{@index}}" style="background-color: {{color}}">Palette {{@index}}</option>
+			{{/each}}
+		</select>
+		<br>
 		<input type="submit" value="Créer un nouveau cours">
 	</form>
+
 </template>
