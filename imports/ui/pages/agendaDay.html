@@ -10,6 +10,20 @@
 
 			<div class="days-list">
 				<ul class='mdl-list'>
+					{{#let days=getWeekFromDay}}
+					<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
+						<li class="mdl-list__item mdl-list__item--three-line">
+							<span class="mdl-list__item-primary-content">
+								<div class="mdl-list__item-avatar avatar-text">
+									{{day.getDate}}
+								</div>
+								<span>{{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (day.getDate)}}</span>
+								<span class="mdl-list__item-text-body">
+									{{getNumberOfTasks (day)}}
+								</span>
+							</span>
+						</li>
+					</a>
 					{{#each day in getWeekFromDay}}
 						<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
 							<li class="mdl-list__item mdl-list__item--three-line">
@@ -25,6 +39,19 @@
 							</li>
 						</a>
 					{{/each}}
+					<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
+						<li class="mdl-list__item mdl-list__item--three-line">
+							<span class="mdl-list__item-primary-content">
+								<div class="mdl-list__item-avatar avatar-text">
+									{{day.getDate}}
+								</div>
+								<span>{{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (day.getDate)}}</span>
+								<span class="mdl-list__item-text-body">
+									{{getNumberOfTasks (day)}}
+								</span>
+							</span>
+						</li>
+					</a>
 				</ul>
 			</div>
 		</div>
@@ -34,28 +61,27 @@
 			</center></h3>
 
 			{{#each note in getNotes}}
-			<div class="course-note-card-container">
-				<div class="course-note-card mdl-card mdl-shadow--2dp">
-					<div class="mdl-card__title">
-						<h2 class="mdl-card__title-text">{{getCourseNameById (note.course)}}</h2>
-					</div>
-					<div class="mdl-card__supporting-text">
-						{{note.content}}
-					</div>
-					<div class="mdl-card__menu">
-						<div class="options-buttons">
-							<button class="mdl-button mdl-js-button mdl-button--icon delete_note" value="{{note._id}}">
-								<i class="material-icons">delete</i>
-							</button>
-							<button class="mdl-button mdl-js-button mdl-button--icon">
-								<i class="material-icons">edit</i>
-							</button>
+				<div class="course-note-card-container">
+					<div class="course-note-card mdl-card mdl-shadow--2dp" style="border-left: solid 5px {{getCourseColorById (note.course)}}">
+						<div class="mdl-card__title" style="background-color: {{getCourseColorById (note.course)}}">
+							<h2 class="mdl-card__title-text">{{getCourseNameById (note.course)}}</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							{{note.content}}
+						</div>
+						<div class="mdl-card__menu">
+							<div class="options-buttons">
+								<button class="mdl-button mdl-js-button mdl-button--icon delete_note" value="{{note._id}}">
+									<i class="material-icons">delete</i>
+								</button>
+								<button class="mdl-button mdl-js-button mdl-button--icon">
+									<i class="material-icons">edit</i>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			{{/each}}
-
 		</div>
 	</div>
 

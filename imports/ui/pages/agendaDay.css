@@ -44,7 +44,7 @@
 }
 
 #modal {
-    transition: .5s all ease;
+    transition: .7s all ease-in-out;
 }
 
 .modal-fade-out {
@@ -56,13 +56,12 @@
 }
 
 .menu-left {
-    height: 100vh;
+    height: calc(100vh - 56px);
     margin: 0;
 }
 
 .days-list {
     background-color: #fefefe;
-    height: 100%;
 }
 
 .avatar-text {

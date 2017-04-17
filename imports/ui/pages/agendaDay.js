@@ -2,7 +2,6 @@
 
 import './agendaDay.html';
 import './agendaDay.css';
-import '../components/dynTabs.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 
@@ -76,22 +75,20 @@ Template.agendaDay.helpers({
 		let dayNumber = parseInt(Router.current().params.day);
 		let day = new Date(year, month, dayNumber);
 		let dayNumberInWeek = day.getDay();
-		let numberFirstDayOfWeek = dayNumber - dayNumberInWeek + 1;
+		let numberFirstDayOfWeek = dayNumber - dayNumberInWeek + (dayNumberInWeek === 0?-6:1);
 
 		console.log(dayNumber + "-" + dayNumberInWeek + "=" + (dayNumber - dayNumberInWeek));
 		for (let i = numberFirstDayOfWeek; i < numberFirstDayOfWeek + 7; i++) {
 			let d = new Date(year, month, i);
 			weekDays.push(d);
 		}
-
 		console.log(weekDays);
-
 		return weekDays;
 	},
 
 	getNumberOfTasks: function(day) {
 		let notes = Note.find({user: Meteor.userId(), date: day});
-		let count = notes.count()
+		let count = notes.count();
 		return count + (count > 1?" notes":" note");
 	}
 });
@@ -124,7 +121,13 @@ Template.agendaDay.events({
 
 	'click .delete_note' : function(event) {
 		event.preventDefault();
-		Meteor.call("deleteNote", $(event.target).attr("value"), function(err, result){
+		let noteID = $(event.target).attr("value");
+		if(noteID == undefined) {
+			noteID = $(event.target).parent(".delete_note").attr("value");
+		}
+		console.log(event.target.parent);
+		console.log(noteID);
+		Meteor.call("deleteNote", noteID, function(err, result){
 			if(err) {
 				console.log(err.reason);
 			}
