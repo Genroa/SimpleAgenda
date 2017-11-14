@@ -6,10 +6,17 @@ import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import './login.html';
 
+Template.login.onRendered(function() {
+		var snackbarContainer = document.querySelector('#toast-error-login');
+		var data = {message: getInfoMessage()};
+		snackbarContainer.MaterialSnackbar.showSnackbar(data);
+});
+
 Template.login.events({
 	'submit .login_form'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();
+
 		Session.set("infoMessage", "Tentative de connexion...");
 
 		let pseudo = $('.login_form #textfield_username').val();

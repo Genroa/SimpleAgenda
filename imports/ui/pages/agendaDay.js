@@ -68,21 +68,32 @@ Template.agendaDay.helpers({
 		return courses.length === 0;
 	},
 
-	getWeekFromDay: function() {
+	getWeekday: function(day) {
+		return day.format('dddd');
+	},
+
+	getHumanizedMonth: function(day) {
+		return day.month() + 1;
+	},
+
+	getOneWeekFromDay: function() {
 		let weekDays = [];
 		let year = parseInt(Router.current().params.year);
 		let month = parseInt(Router.current().params.month-1);
 		let dayNumber = parseInt(Router.current().params.day);
-		let day = new Date(year, month, dayNumber);
-		let dayNumberInWeek = day.getDay();
-		let numberFirstDayOfWeek = dayNumber - dayNumberInWeek + (dayNumberInWeek === 0?-6:1);
+		var dat = moment([year, month, dayNumber]);
+  	dat.subtract(3, 'day');
+		let numberFirstDayOfWeek = dayNumber - 3;
 
-		console.log(dayNumber + "-" + dayNumberInWeek + "=" + (dayNumber - dayNumberInWeek));
-		for (let i = numberFirstDayOfWeek; i < numberFirstDayOfWeek + 7; i++) {
-			let d = new Date(year, month, i);
+		console.log("year = " + year);
+
+		for (let i = 0; i < 7; i++) {
+			let d = moment(dat);
+			d.add(i, 'day');
 			weekDays.push(d);
 		}
 		console.log(weekDays);
+		console.log(weekDays[0]);
 		return weekDays;
 	},
 

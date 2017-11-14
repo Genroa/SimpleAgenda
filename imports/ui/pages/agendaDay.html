@@ -10,9 +10,9 @@
 
 			<div class="days-list">
 				<ul class='mdl-list'>
-					{{#let days=getWeekFromDay}}
+					<!--{{#let days=getWeekFromDay}}
 					<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
-						<li class="mdl-list__item mdl-list__item--three-line">
+						<li class="mdl-list__item mdl-list__item-three-line">
 							<span class="mdl-list__item-primary-content">
 								<div class="mdl-list__item-avatar avatar-text">
 									{{day.getDate}}
@@ -23,15 +23,15 @@
 								</span>
 							</span>
 						</li>
-					</a>
-					{{#each day in getWeekFromDay}}
-						<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
-							<li class="mdl-list__item mdl-list__item--three-line">
+					</a>-->
+					{{#each day in getOneWeekFromDay}}
+						<a href="/agenda/{{day.year}}/{{getHumanizedMonth (day)}}/{{day.date}}/">
+							<li class="day-item mdl-list__item mdl-list__item--three-line">
 								<span class="mdl-list__item-primary-content">
 									<div class="mdl-list__item-avatar avatar-text">
-										{{day.getDate}}
+										{{day.date}}
 									</div>
-									<span>{{getNamedDayOfWeekFromMonthAndYear (currentYear) (currentMonth) (day.getDate)}}</span>
+									<span>{{getWeekday (day)}}<!--{{getNamedDayOfWeekFromMonthAndYear (day.getYear) (day.getMonth) (day.getDay)}}--></span>
 									<span class="mdl-list__item-text-body">
 										{{getNumberOfTasks (day)}}
 									</span>
@@ -39,8 +39,8 @@
 							</li>
 						</a>
 					{{/each}}
-					<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
-						<li class="mdl-list__item mdl-list__item--three-line">
+					<!--<a href="/agenda/{{currentYear}}/{{currentMonth}}/{{day.getDate}}/">
+						<li class="mdl-list__item mdl-list__item-three-line">
 							<span class="mdl-list__item-primary-content">
 								<div class="mdl-list__item-avatar avatar-text">
 									{{day.getDate}}
@@ -51,7 +51,7 @@
 								</span>
 							</span>
 						</li>
-					</a>
+					</a>-->
 				</ul>
 			</div>
 		</div>

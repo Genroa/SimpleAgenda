@@ -79,3 +79,8 @@
     height: auto !important;
     margin-bottom: 10px;
 }
+
+.day-item:hover {
+  background-color: #DADADA;
+  cursor: pointer;
+}

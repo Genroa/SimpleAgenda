@@ -24,3 +24,4 @@ import './routing.js';
 import './global_helpers.js';
 import './lib/jscolor.min.js';
 import './constants.js';
+import './moment_locale_fr.js';
